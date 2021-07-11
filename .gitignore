@@ -37,3 +37,6 @@ yarn-debug.log*
 
 # Ignore gems
 /vendor
+
+# 環境設定ファイルを追加
+/.env
