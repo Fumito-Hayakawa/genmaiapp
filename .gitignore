@@ -34,3 +34,9 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore gems
+/vendor
+
+# 環境設定ファイルを追加
+/.env

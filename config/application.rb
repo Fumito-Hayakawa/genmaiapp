@@ -11,6 +11,11 @@ module GenmaiApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    config.generators do |g|
+      g.assets false          # CSS, JavaScriptファイルは生成しない
+      g.test_framework false  # testファイルは生成しない
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
