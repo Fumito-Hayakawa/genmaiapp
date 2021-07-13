@@ -13,7 +13,7 @@ AllCops:
     - 'spec/*'
     - '.git/**/*'
 
-# 文字数上限
+# 文字数上限。Line is too longを避けるため
 LineLength:
   Max: 130
 
