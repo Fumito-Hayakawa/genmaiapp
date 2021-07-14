@@ -29,3 +29,37 @@ p {
   margin-bottom: 12px;
 }
 
+// -------------------------------------------------------
+// ユーザー登録画面
+.devise {
+  padding-top: 36px;
+}
+
+.frame {
+  max-width: 600px;
+  text-align: center;
+  padding: 24px;
+  margin: 0px auto;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px 0px;
+}
+
+.devise-inner {
+  width: 400px;
+  margin: 0px auto;
+}
+
+.field, .actions {
+  margin-bottom: 10px;
+}
+
+.required-b::before {
+  content: "必須";
+  color: #fff;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
