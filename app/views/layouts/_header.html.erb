@@ -1,7 +1,7 @@
 <header class="header">
   <div class="header-inner">
     <div class="header-left-nav">
-      <h2>玄米レシピサイト</h2>
+      <li><%= link_to '玄米生活のためのレシピ', home_top_path %></li>
     </div>
     <div class="header-right-nav">
       <% if current_user %>
@@ -16,7 +16,6 @@
           <li><%= link_to 'ログイン', new_user_session_path, class: "btn btn-primary" %></li>
         </ul>
       <% end %>
-
     </div>
   </div>
 </header>
