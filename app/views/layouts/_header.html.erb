@@ -1,13 +1,21 @@
-<header class="navbar navbar-fixed-top">
- <div class="container">
-   <nav>
-     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to 'ユーザー登録', new_user_registration_path %></li>
-      <li><%= link_to 'ログイン', new_user_session_path %></li>
-      <li><%= link_to 'マイページ', home_top_path %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-
-     </ul>
-   </nav>
- </div>
+<header class="header">
+  <div class="header-inner">
+    <div class="header-left-nav">
+      <li><%= link_to '玄米生活のためのレシピ', home_top_path %></li>
+    </div>
+    <div class="header-right-nav">
+      <% if current_user %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'レシピ登録', home_top_path, class: "btn btn-primary" %></li>
+          <li><%= link_to 'マイページ', "/users/profile", class: "btn btn-primary" %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "btn btn-primary" %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'ユーザー登録', new_user_registration_path, class: "btn btn-primary" %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: "btn btn-primary" %></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
 </header>
