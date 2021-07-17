@@ -2,7 +2,7 @@
 
 <div class="container devise">
   <div class="frame">
-    <%= render "users/shared/error_messages", resource: resource %>
+    <%= devise_error_messages! %>
     <div class="devise-inner">
       <%= form_with scope: :user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
       <div class="field form-row justify-content-center">
