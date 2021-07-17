@@ -10,31 +10,22 @@
           <h5>プロフィール</h5>
         </div>
       </div>
-        <%= form_with model: @user, class: "profile-user", local: true do |f| %>
-          <div class="update-content">
-            <div class="row">
-              <%= f.label :name, '名前', class:"col-md-3 required-a" %>
-              <%= f.text_field :name, class: "form-control mb-4 col-md-9" %>
-            </div>
-          </div>
-          <div class="update-content">
-            <div class="row">
-              <%= f.label :image, 'アイコン画像', class:"col-md-3 required-a" %>
-              <%= f.file_field :image, class: 'mb-4 col-md-9' %>
-            </div>
-          </div>
-          <div class="update-content">
-            <div class="row">
-              <%= f.label :introduction, '自己紹介', class:"col-md-3 required-a" %>
-              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "自己紹介を入力" %>
-            </div>
-          </div>
-          <div class="update-content">
-            <div class="row">
-              <%= f.submit "更新", class:"col-md-2 btn btn-primary mx-3" %>
-            </div>
-          </div>
-        <% end %>
+      <div class="update-content">
+        <div class="row">
+          <p class="col-md-3">名前</p>
+          <p class="mb-4 col-md-9"><%= @user.name %></p>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <p class="col-md-3">紹介文</p>
+          <p class="mb-4 col-md-9"><%= @user.introduction %></p>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: "col-md-2 btn btn-primary mx-3" %>
+        </div>
       </div>
     </div>
   </div>
