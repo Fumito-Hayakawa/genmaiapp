@@ -79,3 +79,34 @@ p {
   height: 40px;
 }
 
+// ------------------------------------
+// ユーザープロフィール（user#show）画面
+
+.user .user-view {
+  background-color: #F6F8F9;
+  border: 1px solid #e2e2e2;
+}
+
+.user .user-view-box {
+  max-width: 880px;
+  background-color: #fff;
+  border: 1px solid #eaedef;
+  margin: 30px auto;
+}
+
+.user .update-content {
+  border-bottom: 1px solid #eaedef;
+  padding: 20px;
+  margin: 0 15px;
+  font-size: 16px;
+}
+
+.required-a::after {
+  content: "必須";
+  color: #fff;
+  background-color: #ff0000a8;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
