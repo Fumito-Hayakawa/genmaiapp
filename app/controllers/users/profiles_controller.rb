@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Users::ProfilesController < ApplicationController
   def show
     @user = current_user
   end
@@ -16,5 +16,4 @@ class UsersController < ApplicationController
     render "edit"
     end
   end
-
 end
