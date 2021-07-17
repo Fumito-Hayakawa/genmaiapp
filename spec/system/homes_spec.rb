@@ -7,11 +7,11 @@ RSpec.describe "Homeのpage", type: :system do
         visit root_path
       end
 
-      it "玄米生活応援レシピの文字列が存在することを確認" do
+      it "玄米生活応援レシピの文字列が存在する" do
         expect(page).to have_content '玄米生活応援レシピ'
       end
 
-      it "正しいタイトルが表示されることを確認" do
+      it "正しいタイトルが表示される" do
         expect(page).to have_title full_title
       end
     end
