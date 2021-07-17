@@ -1,2 +1,32 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container user">
+  <ul class="nav nav-tabs">
+    <li class="nav-item"><%= link_to 'プロフィール', users_show_path, class: "nav-link active" %></li>
+    <li class="nav-item"><%= link_to 'アカウント', home_top_path, class: "nav-link" %></li>
+  </ul>
+  <div class="user-view">
+    <div class="user-view-box">
+      <div class="update-content">
+        <div class="row">
+          <h5>プロフィール</h5>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <p class="col-md-3">名前</p>
+          <p class="mb-4 col-md-9"><%= @user.name %></p>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <p class="col-md-3">紹介文</p>
+          <p class="mb-4 col-md-9"><%= @user.introduction %></p>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= link_to 'プロフィールを編集', edit_user_path(current_user), class: "col-md-2 btn btn-primary mx-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

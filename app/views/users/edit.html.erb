@@ -1,0 +1,41 @@
+<div class="container user">
+  <ul class="nav nav-tabs">
+    <li class="nav-item"><%= link_to 'プロフィール', users_show_path, class: "nav-link active" %></li>
+    <li class="nav-item"><%= link_to 'アカウント', home_top_path, class: "nav-link" %></li>
+  </ul>
+  <div class="user-view">
+    <div class="user-view-box">
+      <div class="update-content">
+        <div class="row">
+          <h5>プロフィール編集</h5>
+        </div>
+      </div>
+        <%= form_with model: @user, class: "profile-user", local: true do |f| %>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :name, '名前', class:"col-md-3 required-a" %>
+              <%= f.text_field :name, class: "form-control mb-4 col-md-9" %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :image, 'アイコン画像', class:"col-md-3 required-a" %>
+              <%= f.file_field :image, class: 'mb-4 col-md-9' %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.label :introduction, '自己紹介', class:"col-md-3 required-a" %>
+              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "自己紹介を入力" %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
+              <%= f.submit "更新", class:"col-md-2 btn btn-primary mx-3" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
