@@ -62,5 +62,11 @@ RSpec.describe User, type: :model do
       expect(user.errors[:password]).to include("は6文字以上で入力してください")
     end
 
+    it "紹介文が400文字以内であること" do
+      user = build(:user, introduction: "a" * 401)
+      user.valid?
+      expect(user.errors[:introduction]).to include("は400文字以内で入力してください")
+    end
+
   end
 end
