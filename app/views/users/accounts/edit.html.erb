@@ -7,26 +7,26 @@
     <div class="user-view-box">
       <div class="update-content">
         <div class="row">
-          <h5>プロフィール編集</h5>
+          <h5>アカウント情報編集</h5>
         </div>
       </div>
-        <%= form_with model: @user, url: user_profile_path, class: "profile-user", local: true do |f| %>
+        <%= form_with model: @user, url: user_account_path, class: "edit-account", local: true do |f| %>
           <div class="update-content">
             <div class="row">
-              <%= f.label :name, '名前', class:"col-md-3 required-a" %>
-              <%= f.text_field :name, class: "form-control mb-4 col-md-9" %>
+              <%= f.label :email, 'メールアドレス', class:"col-md-3" %>
+              <%= f.text_field :email, class: "form-control mb-4 col-md-9" %>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
-              <%= f.label :image, 'アイコン画像', class:"col-md-3 required-a" %>
-              <%= f.file_field :image, class: 'mb-4 col-md-9' %>
+              <%= f.label :password, '変更後パスワード（変更する場合のみ入力）', class:"col-md-3" %>
+              <%= f.text_field :password, class: "form-control mb-4 col-md-9", placeholder: "パスワードを入力" %>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
-              <%= f.label :introduction, '自己紹介', class:"col-md-3 required-a" %>
-              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "自己紹介を入力" %>
+              <%= f.label :password_confirmation, '変更後パスワード確認用（変更する場合のみ入力）', class:"col-md-3" %>
+              <%= f.text_field :password_confirmation, class: "form-control mb-4 col-md-9", placeholder: "パスワードを入力" %>
             </div>
           </div>
           <div class="update-content">

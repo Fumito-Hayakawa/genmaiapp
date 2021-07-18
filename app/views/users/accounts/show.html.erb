@@ -7,24 +7,24 @@
     <div class="user-view-box">
       <div class="update-content">
         <div class="row">
-          <h5>プロフィール</h5>
+          <h5>アカウント情報</h5>
         </div>
       </div>
       <div class="update-content">
         <div class="row">
-          <p class="col-md-3">名前</p>
-          <p class="mb-4 col-md-9"><%= @user.name %></p>
+          <p class="col-md-3">メールアドレス</p>
+          <p class="mb-4 col-md-9"><%= @user.email %></p>
         </div>
       </div>
       <div class="update-content">
         <div class="row">
-          <p class="col-md-3">紹介文</p>
-          <p class="mb-4 col-md-9"><%= @user.introduction %></p>
+          <p class="col-md-3">パスワード</p>
+          <p class="mb-4 col-md-9">*********</p>
         </div>
       </div>
       <div class="update-content">
         <div class="row">
-          <%= link_to 'プロフィールを編集', edit_user_profile_path(current_user.id,current_user.id), class: "col-md-2 btn btn-primary mx-3" %>
+          <%= link_to 'メールアドレスまたはパスワードを変更', edit_user_account_path(current_user.id), class: "col-md-2 btn btn-primary mx-3" %>
         </div>
       </div>
     </div>

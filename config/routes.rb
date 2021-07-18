@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
 
   # users以下のコントローラーを探しに行く記述
-  resources :users do
+  resources :users, only: [:index] do
     scope module: :users do 
       resources :profiles, only: [:show, :edit, :update]
       resources :accounts, only: [:show, :edit, :update]
