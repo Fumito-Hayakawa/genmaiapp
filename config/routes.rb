@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users do
     scope module: :users do 
       resources :profiles, only: [:show, :edit, :update]
+      resources :accounts, only: [:show, :edit, :update]
     end 
   end
 
