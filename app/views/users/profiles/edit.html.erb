@@ -19,6 +19,12 @@
           </div>
           <div class="update-content">
             <div class="row">
+              <%= f.label :email, 'メールアドレス', class:"col-md-3" %>
+              <%= f.text_field :email, class: "form-control mb-4 col-md-9" %>
+            </div>
+          </div>
+          <div class="update-content">
+            <div class="row">
               <%= f.label :image, 'アイコン画像', class:"col-md-3 required-a" %>
               <%= f.file_field :image, class: 'mb-4 col-md-9' %>
             </div>
