@@ -42,7 +42,7 @@ RSpec.configure do |config|
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
   # config.use_active_record = false
-
+  config.include FactoryBot::Syntax::Methods  # 追記
   config.include Devise::Test::IntegrationHelpers, type: :system # 追加
 
   # RSpec Rails can automatically mix in different behaviours to your tests
@@ -64,4 +64,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+
 end
