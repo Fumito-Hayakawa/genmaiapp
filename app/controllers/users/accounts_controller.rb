@@ -4,12 +4,13 @@ class Users::AccountsController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    # ルーティングをネストしているため、params[:id]だとエラーになる。
+    @user = User.find(params[:user_id])
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update(params.require(:user).permit(:email, :password, :password_confirmation))
+    @user = User.find(params[:user_id])
+    if @user.update(params.require(:user).permit(:password, :password_confirmation))
       flash[:notice] = "アカウントの情報を更新しました"
       redirect_to root_url
     else
