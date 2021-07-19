@@ -47,7 +47,7 @@ RSpec.describe "Users", type: :system do
         visit user_profiles_path(user.id)
       end
  
-      it "「プロフィール」の文字列が存在することを確認" do
+      xit "「プロフィール」の文字列が存在することを確認" do
         expect(page).to have_content 'プロフィール'
       end
  

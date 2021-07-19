@@ -1,9 +1,6 @@
 <% provide(:title, "アカウント編集") %>
 <div class="container user">
-  <ul class="nav nav-tabs">
-    <li class="nav-item"><%= link_to 'プロフィール', user_profile_path(current_user.id,current_user.id), class: "nav-link active" %></li>
-    <li class="nav-item"><%= link_to 'アカウント', user_account_path(current_user.id,current_user.id), class: "nav-link" %></li>
-  </ul>
+  <%= render "layouts/profile_tabs" %>
   <div class="user-view">
     <div class="user-view-box">
       <div class="update-content">
