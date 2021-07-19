@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
+  let(:user) { create(:user) }
+
   describe "ユーザー登録ページ" do
     before do
       visit new_user_registration_path
@@ -41,10 +43,11 @@ RSpec.describe "Users", type: :system do
   describe "プロフィールページ" do
     context "ページレイアウト" do
       before do
-        visit user_path(user)
+        login_for_request(user)
+        visit user_profiles_path(user.id)
       end
  
-      xit "「プロフィール」の文字列が存在することを確認" do
+      it "「プロフィール」の文字列が存在することを確認" do
         expect(page).to have_content 'プロフィール'
       end
  
