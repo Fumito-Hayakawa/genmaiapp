@@ -14,7 +14,7 @@ class Users::ProfilesController < ApplicationController
       flash[:notice] = "プロフィールの情報を更新しました"
       redirect_to root_url
     else
-    render "edit"
+      render "edit"
     end
   end
 end
