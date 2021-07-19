@@ -4,11 +4,12 @@ class Users::ProfilesController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    # ルーティングをネストしているため、params[:id]だとエラーになる。
+    @user = User.find(params[:user_id])
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     if @user.update(params.require(:user).permit(:name, :email, :introduction, :image_name))
       flash[:notice] = "プロフィールの情報を更新しました"
       redirect_to root_url
