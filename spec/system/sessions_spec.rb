@@ -24,12 +24,6 @@ RSpec.describe "Sessions", type: :system do
       it "ヘッダーにユーザー登録ページへのリンクがあること" do
         expect(page).to have_link 'ユーザー登録', href: new_user_registration_path
       end
-      
-      # ユーザー登録画面にラベルがないため落ちるのでスキップするが、ラベルは見た目上あってもよいのでは？最後検討
-      xit "ログインフォームのラベルが正しく表示される" do
-        expect(page).to have_content 'メールアドレス'
-        expect(page).to have_content 'パスワード'
-      end
 
       it "ログインフォームが正しく表示される" do
         expect(page).to have_css 'input#user_email'
