@@ -6,7 +6,6 @@ RSpec.describe "プロフィールページ", type: :request do
   it "レスポンスが正常に表示されること" do
     get new_user_session_path
     login_for_request(user)
-    binding.pry
     get user_profiles_path(current_user.id)
     expect(response).to be_successful
     expect(response).to have_http_status "200"
