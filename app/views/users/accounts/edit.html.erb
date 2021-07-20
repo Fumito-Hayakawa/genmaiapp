@@ -3,6 +3,9 @@
   <%= render "layouts/profile_tabs" %>
   <div class="user-view">
     <div class="user-view-box">
+      <div class="message">
+        <%= render 'layouts/error_messages', model: @user %>
+      </div>
       <div class="update-content">
         <div class="row">
           <h5>アカウント情報編集</h5>
