@@ -13,13 +13,13 @@
           <div class="update-content">
             <div class="row">
               <%= f.label :name, '名前', class:"col-md-3 required-a" %>
-              <%= f.text_field :name, class: "form-control mb-4 col-md-9" %>
+              <%= f.text_field :name, class: "form-control mb-4 col-md-9", id:"name_form" %>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
               <%= f.label :email, 'メールアドレス', class:"col-md-3" %>
-              <%= f.text_field :email, class: "form-control mb-4 col-md-9" %>
+              <%= f.text_field :email, class: "form-control mb-4 col-md-9", id:"email_form" %>
             </div>
           </div>
           <div class="update-content">
@@ -31,7 +31,7 @@
           <div class="update-content">
             <div class="row">
               <%= f.label :introduction, '自己紹介', class:"col-md-3 required-a" %>
-              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "自己紹介を入力" %>
+              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "自己紹介を入力", id:"introduction_form" %>
             </div>
           </div>
           <div class="update-content">
