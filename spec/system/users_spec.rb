@@ -41,21 +41,21 @@ RSpec.describe "Users", type: :system do
     end
   end
   describe "プロフィールページ" do
+    before do
+      login_for_request(user)
+      visit user_profiles_path(user)
+    end
+
     context "ページレイアウト" do
-      before do
-        login_for_request(user)
-        visit user_profiles_path(user.id)
-      end
- 
-      xit "「プロフィール」の文字列が存在することを確認" do
+      it "「プロフィール」の文字列が存在することを確認" do
         expect(page).to have_content 'プロフィール'
       end
  
-      xit "正しいタイトルが表示されることを確認" do
+      it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title('プロフィール')
       end
   
-      xit "ユーザー情報が表示されることを確認" do
+      it "ユーザー情報が表示されることを確認" do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
       end
