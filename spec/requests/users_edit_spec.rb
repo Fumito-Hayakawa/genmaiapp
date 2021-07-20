@@ -5,24 +5,23 @@ RSpec.describe "プロフィール編集", type: :request do
 
   before do
     login_for_request(user)
-    get user_profiles_path(user.id)
+    get edit_user_profiles_path(user)
   end
 
-  xit "有効なプロフィール編集" do
-    expect(response).to render_template('users/edit')
-    patch user_path(user), params: { user: { name: "Example User",
+  it "有効なプロフィール編集" do
+    expect(response).to render_template('users/profiles/edit')
+    patch user_profiles_path(user), params: { user: { name: "Example User",
                                              email: "user@example.com",
-                                             introduction: "初めまして",
-                                             sex: "男性" } }
-    redirect_to user
+                                             introduction: "初めまして",} }
+    redirect_to root_url
     follow_redirect!
-    expect(response).to render_template('users/show')
+    expect(response).to render_template('home/top')
   end
 
-  xit "無効なプロフィール編集" do
-    expect(response).to render_template('users/edit')
-    patch user_path(user), params: { user: { name: "",
-                                             email: "xxx@invalid" } }
-    expect(response).to render_template('users/edit')
+  it "無効なプロフィール編集" do
+    expect(response).to render_template('users/profiles/edit')
+    patch user_profiles_path(user), params: { user: { name: "",
+                                             email: "user@invalid" } }
+    expect(response).to render_template('users/profiles/edit')
   end
 end
