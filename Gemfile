@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'rubocop-airbnb'
   gem "factory_bot_rails", "~> 4.10.0" 
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -48,7 +49,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # gem 'spring'
   # gem 'spring-commands-rspec'  # springとspring-commands-rspecはherokuデプロイ時にエラーになるため削除
-  gem 'pry-byebug'
 end
 
 group :test do
