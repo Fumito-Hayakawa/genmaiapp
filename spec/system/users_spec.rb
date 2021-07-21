@@ -60,6 +60,11 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
       end
+
+      it "プロフィール編集ページへのリンクが表示されていることを確認" do
+        expect(page).to have_link 'プロフィールを編集', href: edit_user_profiles_path(user)
+      end
+
     end
   end
 
