@@ -27,7 +27,7 @@ class Users::ProfilesController < ApplicationController
   private
 
   def correct_user
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     if !current_user?(@user)
       flash[:danger] = "このページへはアクセスできません"
       redirect_to(root_url)
