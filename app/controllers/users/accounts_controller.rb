@@ -1,4 +1,9 @@
 class Users::AccountsController < ApplicationController
+  # ヘルパーメソッド読み込みのため
+  include ApplicationHelper
+  before_action :logged_in_user
+  before_action :correct_user,  only: [:edit, :update]
+  
   def show
     @user = current_user
   end
@@ -17,6 +22,16 @@ class Users::AccountsController < ApplicationController
       redirect_to root_url
     else
       render "edit"
+    end
+  end
+
+  private
+
+  def correct_user
+    @user = User.find(params[:id])
+    if !current_user?(@user)
+      flash[:danger] = "このページへはアクセスできません"
+      redirect_to(root_url)
     end
   end
 end
