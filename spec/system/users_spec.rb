@@ -44,7 +44,7 @@ RSpec.describe "Users", type: :system do
   describe "プロフィールページ" do
     before do
       # ログインする
-      sign_in user
+      login_for_system(user)
       visit user_profiles_path(user)
     end
 
