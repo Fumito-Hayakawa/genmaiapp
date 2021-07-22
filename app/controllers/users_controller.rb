@@ -4,6 +4,6 @@ class UsersController < ApplicationController
   before_action :logged_in_user
   
   def index
-    @users = User.all
+    @users = User.all.page(params[:page]).per(20)
   end
 end

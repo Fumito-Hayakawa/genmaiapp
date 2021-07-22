@@ -1,26 +1,10 @@
 <% provide(:title, 'ユーザー一覧') %>
 <div class="container">
   <h1>ユーザー一覧</h1>
-  <nav aria-label="ページネーション">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="前へ">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">前へ</span>
-        </a>
-      </li>
-      <li class="page-item"><a class="page-link" href="#">1</a></li>
-      <li class="page-item"><a class="page-link" href="#">2</a></li>
-      <li class="page-item"><a class="page-link" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="次へ">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">次へ</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <ul class="users">
-    <%= render @users %>
+  <%= paginate @users %>
+  <ul>
+    <% @users.each do |user| %>
+      <li><%= user.name %></li>
+    <% end %>
   </ul>
 </div>
