@@ -1,9 +1,6 @@
 <% provide(:title, "プロフィール編集") %>
 <div class="container user">
-  <ul class="nav nav-tabs">
-    <li class="nav-item"><%= link_to 'プロフィール', user_profiles_path(current_user.id), class: "nav-link active" %></li>
-    <li class="nav-item"><%= link_to 'アカウント', user_accounts_path(current_user.id), class: "nav-link" %></li>
-  </ul>
+  <%= render "layouts/profile_tabs" %>
   <div class="user-view">
     <div class="user-view-box">
       <div class="update-content">
@@ -12,16 +9,17 @@
         </div>
       </div>
         <%= form_with model: @user, url: user_profiles_path, class: "profile-user", local: true do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="update-content">
             <div class="row">
               <%= f.label :name, '名前', class:"col-md-3 required-a" %>
-              <%= f.text_field :name, class: "form-control mb-4 col-md-9" %>
+              <%= f.text_field :name, class: "form-control mb-4 col-md-9", id:"name_form" %>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
               <%= f.label :email, 'メールアドレス', class:"col-md-3" %>
-              <%= f.text_field :email, class: "form-control mb-4 col-md-9" %>
+              <%= f.text_field :email, class: "form-control mb-4 col-md-9", id:"email_form" %>
             </div>
           </div>
           <div class="update-content">
@@ -33,7 +31,7 @@
           <div class="update-content">
             <div class="row">
               <%= f.label :introduction, '自己紹介', class:"col-md-3 required-a" %>
-              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "自己紹介を入力" %>
+              <%= f.text_area :introduction, class: "form-control mb-4 col-md-9", placeholder: "自己紹介を入力", id:"introduction_form" %>
             </div>
           </div>
           <div class="update-content">

@@ -40,25 +40,60 @@ RSpec.describe "Users", type: :system do
       end
     end
   end
+  
   describe "プロフィールページ" do
+    before do
+      # ログインする
+      login_for_system(user)
+      visit user_profiles_path(user)
+    end
+
     context "ページレイアウト" do
-      before do
-        login_for_request(user)
-        visit user_profiles_path(user.id)
-      end
- 
       it "「プロフィール」の文字列が存在することを確認" do
         expect(page).to have_content 'プロフィール'
       end
  
-      xit "正しいタイトルが表示されることを確認" do
+      it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title('プロフィール')
       end
   
-      xit "ユーザー情報が表示されることを確認" do
+      it "ユーザー情報が表示されることを確認" do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
       end
+
+      it "プロフィール編集ページへのリンクが表示されていることを確認" do
+        expect(page).to have_link 'プロフィールを編集', href: edit_user_profiles_path(user)
+      end
+
+    end
+  end
+
+  describe "プロフィール編集ページ" do
+    before do
+      sign_in user
+      visit user_profiles_path(user)
+      click_link "プロフィールを編集"
+    end
+    
+    it "有効なプロフィール更新を行うと、フラッシュが表示されること" do
+      fill_in "name_form", with: "Editユーザー"
+      fill_in "email_form", with: "edit-user@example.com"
+      fill_in "introduction_form", with: "プロフィールを編集しました、こんにちは。"
+      click_button "更新"
+      expect(page).to have_content "プロフィールの情報を更新しました"
+      expect(user.reload.name).to eq "Editユーザー"
+      expect(user.reload.email).to eq "edit-user@example.com"
+      expect(user.reload.introduction).to eq "プロフィールを編集しました、こんにちは。"
+    end
+
+    it "無効なプロフィール更新をしようとすると、適切なエラーメッセージが表示されること" do
+      fill_in "name_form", with: ""
+      fill_in "email_form", with: ""
+      click_button "更新"
+      expect(page).to have_content 'ユーザー名が空になっています'
+      expect(page).to have_content 'メールアドレスが空になっています'
+      expect(user.reload.email).not_to eq ""
     end
   end
 end

@@ -45,6 +45,8 @@ RSpec.configure do |config|
   # config.use_active_record = false
   config.include FactoryBot::Syntax::Methods  # 追記
   config.include Devise::Test::IntegrationHelpers, type: :system # 追加
+  config.include Devise::Test::IntegrationHelpers, type: :request # 追加
+
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

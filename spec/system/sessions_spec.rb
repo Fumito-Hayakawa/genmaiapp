@@ -26,8 +26,8 @@ RSpec.describe "Sessions", type: :system do
       end
 
       it "ログインフォームが正しく表示される" do
-        expect(page).to have_css 'input#user_email'
-        expect(page).to have_css 'input#user_password'
+        expect(page).to have_css 'input#email_form'
+        expect(page).to have_css 'input#email_form'
       end
 
       it "ログインボタンが表示される" do

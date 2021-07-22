@@ -1,9 +1,6 @@
 <% provide(:title, "プロフィール") %>
 <div class="container user">
-  <ul class="nav nav-tabs">
-    <li class="nav-item"><%= link_to 'プロフィール', user_profiles_path(current_user.id), class: "nav-link active" %></li>
-    <li class="nav-item"><%= link_to 'アカウント', user_accounts_path(current_user.id), class: "nav-link" %></li>
-  </ul>
+  <%= render "layouts/profile_tabs" %>
   <div class="user-view">
     <div class="user-view-box">
       <div class="update-content">
@@ -25,7 +22,7 @@
       </div>
       <div class="update-content">
         <div class="row">
-          <%= link_to 'プロフィールを編集', edit_user_profiles_path(current_user), class: "col-md-2 btn btn-primary mx-3" %>
+          <%= link_to 'プロフィールを編集', edit_user_profiles_path(@user), class: "col-md-2 btn btn-primary mx-3" %>
         </div>
       </div>
     </div>
