@@ -24,6 +24,13 @@ class Users::ProfilesController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:success] = "アカウントを削除しました"
+    redirect_to root_url
+  end
+
   private
 
   def correct_user
