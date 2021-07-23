@@ -42,7 +42,9 @@
         <% end %>
         <div class="update-content">
           <div class="row">
-            <%= link_to "アカウントを削除", user_path(@user), method: :delete, data: { confirm: "本当に削除しますか？" }, class:"col-md-2 btn btn-danger mx-3" %>
+            <% if (!current_user.admin? && current_user == @user) %>
+              <%= link_to "アカウントを削除", user_path(@user), method: :delete, data: { confirm: "本当に削除しますか？" }, class:"col-md-2 btn btn-danger mx-3" %>
+            <% end %>
           </div>
         </div>
       </div>
