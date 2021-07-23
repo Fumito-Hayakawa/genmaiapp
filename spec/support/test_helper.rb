@@ -1,6 +1,10 @@
 include ApplicationHelper # full_titleメソッドの読み込み
 
-# Request spec用のログインヘルパー
+def is_logged_in?
+  !session[:user_id].nil?
+end
+
+  # Request spec用のログインヘルパー
 def login_for_request(user)
   post user_session_path, params: { user: { name: user.name,
                                         email: user.email,
