@@ -7,6 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec' # 追加
+require 'devise' #追加
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -44,6 +45,8 @@ RSpec.configure do |config|
   # config.use_active_record = false
   config.include FactoryBot::Syntax::Methods  # 追記
   config.include Devise::Test::IntegrationHelpers, type: :system # 追加
+  config.include Devise::Test::IntegrationHelpers, type: :request # 追加
+
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and

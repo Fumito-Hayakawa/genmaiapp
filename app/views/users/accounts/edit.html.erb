@@ -1,8 +1,6 @@
+<% provide(:title, "アカウント編集") %>
 <div class="container user">
-  <ul class="nav nav-tabs">
-    <li class="nav-item"><%= link_to 'プロフィール', user_profile_path(current_user.id,current_user.id), class: "nav-link active" %></li>
-    <li class="nav-item"><%= link_to 'アカウント', user_account_path(current_user.id,current_user.id), class: "nav-link" %></li>
-  </ul>
+  <%= render "layouts/profile_tabs" %>
   <div class="user-view">
     <div class="user-view-box">
       <div class="update-content">
@@ -10,7 +8,8 @@
           <h5>アカウント情報編集</h5>
         </div>
       </div>
-        <%= form_with model: @user, url: user_account_path, class: "edit-account", local: true do |f| %>
+        <%= form_with model: @user, url: user_accounts_path, class: "edit-account", local: true do |f| %>
+          <%= render 'layouts/error_messages', model: f.object %>
           <div class="update-content">
             <div class="row">
               <%= f.label :password, '変更後パスワード（変更する場合のみ入力）', class:"col-md-3" %>

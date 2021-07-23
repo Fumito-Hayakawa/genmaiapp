@@ -6,4 +6,5 @@ class ApplicationController < ActionController::Base
     # deviseのUserモデルにパラメーターを許可。emailとpasswordはデフォルトで許可のため不要。
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
   end
+
 end
