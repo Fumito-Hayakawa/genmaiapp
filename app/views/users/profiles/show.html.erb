@@ -8,6 +8,13 @@
           <h5>プロフィール</h5>
         </div>
       </div>
+      <div class="icon-box">
+        <% if @user.user_image.attached? %>
+          <%= image_tag @user.user_image.variant(resize:'200x200').processed, class:"icon-image host-icon" %>
+        <% else %>
+          <img alt="アイコン画像" class="icon-image host-icon" src="../../assets/default_icon.jpg">
+        <% end %>
+      </div>
       <div class="update-content">
         <div class="row">
           <p class="col-md-3">名前</p>
