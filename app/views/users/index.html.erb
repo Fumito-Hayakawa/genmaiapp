@@ -4,7 +4,10 @@
   <%= paginate @users %>
   <ul>
     <% @users.each do |user| %>
-      <li><%= user.name %></li>
+      <li><%= link_to user.name, user_profiles_path(user) %></li>
+      <% if (current_user.admin? && current_user != user) || (!current_user.admin? && current_user == user) %>
+        <li><%= link_to "削除", user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
+      <% end %>
     <% end %>
   </ul>
 </div>
