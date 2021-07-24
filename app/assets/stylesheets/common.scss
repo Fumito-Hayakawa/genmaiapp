@@ -34,6 +34,12 @@ p {
   text-align: center;
 }
 
+.link {
+  text-decoration: none;
+  // 黒に近いグレー
+  color: #333333 ; 
+}
+
 // ヘッダー
 .navbar ul{
   margin-top: 12px;
@@ -130,3 +136,6 @@ p {
   }
  }
 
+ .pagination {
+  justify-content: center;
+}
