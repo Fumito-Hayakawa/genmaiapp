@@ -1,13 +1,40 @@
 <% provide(:title, 'ユーザー一覧') %>
-<div class="container">
-  <h1>ユーザー一覧</h1>
-  <%= paginate @users %>
-  <ul>
-    <% @users.each do |user| %>
-      <li><%= link_to user.name, user_profiles_path(user) %></li>
-      <% if (current_user.admin? && current_user != user) || (!current_user.admin? && current_user == user) %>
-        <li><%= link_to "削除", user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" } %></li>
-      <% end %>
-    <% end %>
-  </ul>
+<div class="container user">
+  <div class="user-view">  
+    <div class="user-view-box">
+      <div class="update-content">
+        <div class="row">
+          <h5>ユーザー一覧</h5>
+        </div>
+      </div>
+      <div class="pagination">
+        <%= paginate @users %>
+      </div>
+      <div class="row">
+        <% @users.each do |user| %>
+          <div class="col-12 col-md-6">
+            <div class="card mb-3" style="max-width; 25rem;">
+              <div class="row">
+                <div class="col-3 my-auto pl-4 pt-2">
+                  <% if user.user_image.attached? %>
+                    <%= image_tag user.user_image.variant(resize:'200x200').processed, class:"icon-image host-icon" %>
+                  <% else %>
+                    <img alt="アイコン画像" class="icon-image host-icon" src="../../assets/default_icon.jpg">
+                  <% end %>
+                  <% if (current_user.admin? && current_user != user) || (!current_user.admin? && current_user == user) %>
+                    <%= link_to "削除", user_path(user), method: :delete, data: { confirm: "本当に削除しますか？" }, class:"btn btn-danger my-2" %>
+                  <% end %>
+                </div>
+                <div class="col-9">
+                  <div class="card-body">
+                    <h5><%= link_to user.name, user_profiles_path(user), class:"card-title link" %></h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        </div>
+    </div>
+  </div>
 </div>

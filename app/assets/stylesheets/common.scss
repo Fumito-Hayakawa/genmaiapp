@@ -34,6 +34,12 @@ p {
   text-align: center;
 }
 
+.link {
+  text-decoration: none;
+  // 黒に近いグレー
+  color: #333333 ; 
+}
+
 // ヘッダー
 .navbar ul{
   margin-top: 12px;
@@ -111,6 +117,13 @@ p {
   margin: 0 5px;
 }
 
+.host-icon {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50px;
+}
+
 // --------------------------------------------------
 // ユーザー一覧ページ
 .users {
@@ -122,3 +135,7 @@ p {
     border-bottom: 1px solid;
   }
  }
+
+ .pagination {
+  justify-content: center;
+}
