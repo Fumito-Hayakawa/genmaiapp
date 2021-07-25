@@ -2,7 +2,6 @@
 <h2>パスワードをお忘れの方へ</h2>
 <div class="container devise">
   <div class="frame">
-    <%= render "users/shared/error_messages", resource: resource %>
     <div class="devise-inner">
       <%= form_with scope: :user, url: user_password_path, id: 'edit_password', class: 'edit_password', local: true do |f| %>
         <div class="field form-row justify-content-center">
