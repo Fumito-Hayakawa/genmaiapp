@@ -96,4 +96,27 @@ RSpec.describe "Users", type: :system do
       expect(user.reload.email).not_to eq ""
     end
   end
+
+  describe "アカウント編集ページ" do
+    before do
+      sign_in user
+      visit user_accounts_path(user)
+      click_link "パスワードを変更"
+    end
+    
+    it "有効なアカウント更新を行うと、フラッシュが表示されること" do
+      fill_in "password_form", with: "password"
+      fill_in "password_confirmation_form", with: "password"
+      click_button "更新"
+      expect(page).to have_content "アカウントの情報を更新しました"
+    end
+
+    it "無効なプロフィール更新をしようとすると、適切なエラーメッセージが表示されること" do
+      fill_in "password_form", with: "password"
+      fill_in "password_confirmation_form", with: "password1"
+      click_button "更新"
+      expect(page).to have_content '確認用パスワードとパスワードの入力が一致しません'
+      expect(user.reload.email).not_to eq user.password
+    end
+  end
 end

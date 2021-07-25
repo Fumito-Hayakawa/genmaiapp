@@ -1,6 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "Userページ", type: :request do  
+RSpec.describe "Userページ", type: :request do 
+  let(:user) { create(:user) }
+
   describe "ログインページ" do
     it "正常なレスポンスを返すこと" do
       get new_user_session_path

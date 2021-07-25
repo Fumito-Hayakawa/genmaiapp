@@ -13,13 +13,13 @@
           <div class="update-content">
             <div class="row">
               <%= f.label :password, '変更後パスワード（変更する場合のみ入力）', class:"col-md-3" %>
-              <%= f.text_field :password, class: "form-control mb-4 col-md-9", placeholder: "パスワードを入力" %>
+              <%= f.text_field :password, class: "form-control mb-4 col-md-9", placeholder: "パスワードを入力", id: "password_form" %>
             </div>
           </div>
           <div class="update-content">
             <div class="row">
               <%= f.label :password_confirmation, '変更後パスワード確認用（変更する場合のみ入力）', class:"col-md-3" %>
-              <%= f.text_field :password_confirmation, class: "form-control mb-4 col-md-9", placeholder: "パスワードを入力" %>
+              <%= f.text_field :password_confirmation, class: "form-control mb-4 col-md-9", placeholder: "パスワードを入力", id:"password_confirmation_form" %>
             </div>
           </div>
           <div class="update-content">
