@@ -5,7 +5,8 @@ class Users::AccountsController < ApplicationController
   before_action :correct_user,  only: [:show, :edit, :update]
 
   def show
-    @user = current_user
+    # はじめ@user = current_userとしていたが、テスト時にプロフィールへのリンクにあるuser_idがnilに。この通常通りの書き方が必要だった。
+    @user = User.find(params[:user_id])
   end
 
   def edit
