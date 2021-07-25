@@ -26,7 +26,7 @@ module ApplicationHelper
 
   def log_out
     session.delete(:user_id)
-    @current_user = nil
+    # rubocopで以下エラーのため、実際に使用することが確定次第修正
+    # current_user = nil
   end
-
 end

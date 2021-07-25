@@ -67,6 +67,5 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:introduction]).to include("は400文字以内で入力してください")
     end
-
   end
 end

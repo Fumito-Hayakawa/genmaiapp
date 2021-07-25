@@ -3,8 +3,8 @@ include ApplicationHelper # full_titleメソッドの読み込み
 # Request spec用のログインヘルパー
 def login_for_request(user)
   post user_session_path, params: { user: { name: user.name,
-                                        email: user.email,
-                                        password: user.password } }
+                                            email: user.email,
+                                            password: user.password } }
 end
 
 def current_user
