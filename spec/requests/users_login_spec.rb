@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Userページ", type: :request do 
+RSpec.describe "Userページ", type: :request do
   let(:user) { create(:user) }
 
   describe "ログインページ" do

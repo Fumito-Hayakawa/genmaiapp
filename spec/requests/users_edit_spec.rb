@@ -10,8 +10,8 @@ RSpec.describe "プロフィール・アカウント編集", type: :request do
       get edit_user_profiles_path(user)
       expect(response).to render_template('users/profiles/edit')
       patch user_profiles_path(user), params: { user: { name: "Example User",
-                                               email: "user@example.com",
-                                               introduction: "初めまして",} }
+                                                        email: "user@example.com",
+                                                        introduction: "初めまして", } }
       redirect_to root_url
       follow_redirect!
       expect(response).to render_template('home/top')
@@ -22,7 +22,7 @@ RSpec.describe "プロフィール・アカウント編集", type: :request do
       get edit_user_accounts_path(user)
       expect(response).to render_template('users/accounts/edit')
       patch user_accounts_path(user), params: { user: { password: "password",
-                                               password_confirmation: "password"} }
+                                                        password_confirmation: "password" } }
       redirect_to root_url
       follow_redirect!
       expect(response).to render_template('home/top')
@@ -38,7 +38,7 @@ RSpec.describe "プロフィール・アカウント編集", type: :request do
       expect(response).to redirect_to new_user_session_path
       # update
       patch user_profiles_path(user), params: { user: { name: "",
-                                               email: "user@invalid" } }
+                                                        email: "user@invalid" } }
       expect(response).to have_http_status "302"
       expect(response).to redirect_to new_user_session_path
     end
@@ -51,7 +51,7 @@ RSpec.describe "プロフィール・アカウント編集", type: :request do
       expect(response).to redirect_to new_user_session_path
       # update
       patch user_accounts_path(user), params: { user: { password: "password",
-                                               password_confirmation: "password" } }
+                                                        password_confirmation: "password" } }
       expect(response).to have_http_status "302"
       expect(response).to redirect_to new_user_session_path
     end
@@ -66,7 +66,7 @@ RSpec.describe "プロフィール・アカウント編集", type: :request do
       expect(response).to redirect_to root_path
       # update
       patch user_profiles_path(user), params: { user: { name: user.name,
-                                               email: user.email } }
+                                                        email: user.email } }
       expect(response).to have_http_status "302"
       expect(response).to redirect_to root_path
     end
@@ -79,7 +79,7 @@ RSpec.describe "プロフィール・アカウント編集", type: :request do
       expect(response).to redirect_to root_path
       # update
       patch user_accounts_path(user), params: { user: { password: "password",
-                                               password_confirmation: "password" } }
+                                                        password_confirmation: "password" } }
       expect(response).to have_http_status "302"
       expect(response).to redirect_to root_path
     end

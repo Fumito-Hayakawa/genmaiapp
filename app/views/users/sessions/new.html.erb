@@ -4,7 +4,6 @@
 
 <div class="container devise">
   <div class="frame">
-    <%= render "users/shared/error_messages", resource: resource %>
     <div class="devise-inner">
       <%= form_with scope: :user, url: user_session_path, id: 'new_session', class: 'new_session', local: true do |f| %>
         <div class="field form-row justify-content-center">

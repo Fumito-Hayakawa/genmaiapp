@@ -12,15 +12,15 @@ RSpec.describe "ユーザー登録", type: :request do
   it "有効なユーザーで登録" do
     expect {
       post user_registration_path, params: { user: { name: "Example User",
-                                         email: "user@example.com",
-                                         password: "password",
-                                         password_confirmation: "password" } }
+                                                     email: "user@example.com",
+                                                     password: "password",
+                                                     password_confirmation: "password" } }
     }.to change(User, :count).by(1)
     redirect_to @user
     follow_redirect!
     expect(response).to render_template('home/top')
   end
-  
+
   it "無効なユーザーで登録（名前なし）" do
     expect {
       post users_path, params: { user: { name: "",
@@ -47,5 +47,4 @@ RSpec.describe "ユーザー登録", type: :request do
                                          password_confirmation: "password" } }
     }.not_to change(User, :count)
   end
-
 end

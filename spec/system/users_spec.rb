@@ -1,7 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
+  
+  describe "ユーザー一覧ページ" do
+    it "ぺージネーションが表示されること" do
+      create_list(:user, 21)
+      login_for_system(user)
+      visit users_path
+      expect(page).to have_css(".page-link")
+    end
+  end
 
   describe "ユーザー登録ページ" do
     before do
@@ -27,7 +36,7 @@ RSpec.describe "Users", type: :system do
         click_button "登録完了する"
         expect(page).to have_content "アカウント登録が完了しました。"
       end
-   
+
       it "無効なユーザーでユーザー登録を行うとユーザー登録失敗のフラッシュが表示されること" do
         fill_in "name_form", with: ""
         fill_in "email_form", with: ""
@@ -40,7 +49,7 @@ RSpec.describe "Users", type: :system do
       end
     end
   end
-  
+
   describe "プロフィールページ" do
     before do
       # ログインする
@@ -52,11 +61,11 @@ RSpec.describe "Users", type: :system do
       it "「プロフィール」の文字列が存在することを確認" do
         expect(page).to have_content 'プロフィール'
       end
- 
+
       it "正しいタイトルが表示されることを確認" do
         expect(page).to have_title full_title('プロフィール')
       end
-  
+
       it "ユーザー情報が表示されることを確認" do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
@@ -65,7 +74,6 @@ RSpec.describe "Users", type: :system do
       it "プロフィール編集ページへのリンクが表示されていることを確認" do
         expect(page).to have_link 'プロフィールを編集', href: edit_user_profiles_path(user)
       end
-
     end
   end
 
@@ -75,7 +83,7 @@ RSpec.describe "Users", type: :system do
       visit user_profiles_path(user)
       click_link "プロフィールを編集"
     end
-    
+
     it "有効なプロフィール更新を行うと、フラッシュが表示されること" do
       fill_in "name_form", with: "Editユーザー"
       fill_in "email_form", with: "edit-user@example.com"
@@ -103,7 +111,7 @@ RSpec.describe "Users", type: :system do
       visit user_accounts_path(user)
       click_link "パスワードを変更"
     end
-    
+
     it "有効なアカウント更新を行うと、フラッシュが表示されること" do
       fill_in "password_form", with: "password"
       fill_in "password_confirmation_form", with: "password"

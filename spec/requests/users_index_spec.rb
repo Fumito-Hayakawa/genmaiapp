@@ -24,8 +24,8 @@ RSpec.describe "ユーザー一覧ページ", type: :request do
     login_for_request(user)
     expect(user.admin).to be false
     patch user_profiles_path(user), params: { user: { password: user.password,
-                                             password_confirmation: user.password,
-                                             admin: true } }
+                                                      password_confirmation: user.password,
+                                                      admin: true } }
     expect(user.reload.admin).to be false
   end
 end

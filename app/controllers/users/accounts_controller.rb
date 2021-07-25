@@ -2,7 +2,7 @@ class Users::AccountsController < ApplicationController
   # ヘルパーメソッド読み込みのため
   include ApplicationHelper
   before_action :logged_in_user
-  before_action :correct_user,  only: [:show, :edit, :update]
+  before_action :correct_user, only: [:show, :edit, :update]
 
   def show
     # はじめ@user = current_userとしていたが、テスト時にプロフィールへのリンクにあるuser_idがnilに。この通常通りの書き方が必要だった。
@@ -18,7 +18,7 @@ class Users::AccountsController < ApplicationController
     @user = User.find(params[:user_id])
     if @user.update(params.require(:user).permit(:password, :password_confirmation))
       flash[:notice] = "アカウントの情報を更新しました"
-      #PW変更後のログアウト防止
+      # PW変更後のログアウト防止
       bypass_sign_in(@user)
       redirect_to root_url
     else
