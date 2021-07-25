@@ -1,7 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
-  let(:user) { create(:user) }
+  let!(:user) { create(:user) }
+  
+  describe "ユーザー一覧ページ" do
+    it "ぺージネーションが表示されること" do
+      create_list(:user, 21)
+      login_for_system(user)
+      visit users_path
+      expect(page).to have_css(".page-link")
+    end
+  end
 
   describe "ユーザー登録ページ" do
     before do
