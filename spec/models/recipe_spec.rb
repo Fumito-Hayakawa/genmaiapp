@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
   let!(:recipe) { create(:recipe) }
+  let!(:recipe_yesterday) { create(:recipe, :yesterday) }
+  let!(:recipe_one_week_ago) { create(:recipe, :one_week_ago) }
+  let!(:recipe_one_month_ago) { create(:recipe, :one_month_ago) }
 
   context "バリデーション" do
     it "有効な状態であること" do
@@ -42,6 +45,12 @@ RSpec.describe Recipe, type: :model do
       recipe = build(:recipe, episode: "あ" * 201)
       recipe.valid?
       expect(recipe.errors[:episode]).to include("は200文字以内で入力してください")
+    end
+  end
+
+  context "並び順" do
+    it "直近の投稿が最初の投稿になっていること" do
+      expect(recipe).to eq Recipe.first
     end
   end
 end
