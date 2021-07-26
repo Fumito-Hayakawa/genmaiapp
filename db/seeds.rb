@@ -15,3 +15,12 @@ User.create!(name:  name,
     password:              password,
     password_confirmation: password)
 end
+
+10.times do |n|
+  Recipe.create!(name: Faker::Food.dish,
+               description: Faker::Food.description,
+               tips: "手早く調理するのがおすすめ",
+               episode: "魚を釣っている時に思いつきました",
+               portion: 1.5,
+               user_id: 1)
+end

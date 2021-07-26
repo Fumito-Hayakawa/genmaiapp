@@ -28,4 +28,16 @@
       <% end %>
     </div>
   </div>
+  <div class="user-view">
+    <div class="user-view-box">
+      <div class="user-update-content">
+        <% if @user.recipes.any? %>
+          <h5>投稿レシピ一覧 (<%= @user.recipes.count %>件)</h5> 
+          <ol class="recipes">
+            <%= render partial: 'recipes/recipe', collection: @recipes, as: "recipe" %>
+          </ol>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
