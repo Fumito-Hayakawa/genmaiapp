@@ -6,3 +6,16 @@ ja:
       truncate: "..."
       last: ">>"
       first: "<<"
+  activerecord:
+    models:
+      user: ユーザー
+      recipe: レシピ
+    attributes:
+      dish:
+        id: ID
+        name: レシピ名
+        description: 説明
+        portion: 分量
+        tips: コツ・ポイント
+        user_id: 作成者のID
+        episode: エピソード
