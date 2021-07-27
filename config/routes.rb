@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     scope module: :users do 
       resource :profiles, only: [:show, :edit, :update]
       resource :accounts, only: [:show, :edit, :update]
+      # ユーザー一人から見て一つしかないようなリソースの場合は単数。resourceにindexは含まれないのでresourcesとする
+      resources :recipes, only: [:index]
     end 
   end
 

@@ -1,6 +1,10 @@
-<li id="recipe-<%= recipe.id %>">
-  <span class="name"><%= link_to recipe.name, "#" %></span>
-  <span class="description"><%= recipe.description %></span><br>
-  <span class="created_at">作成日：<%= recipe.created_at %></span><br>
-  <h5>表示確認</h5>
-</li>
+<div class="col-md-2">
+  <p>画像</p>
+</div>
+<div class="col-md-9">
+  <ol id="recipe-<%= recipe.id %>">
+    <span class="name recipe-name"><%= link_to recipe.name, "#" %></span>
+    <br>
+    <span class="description recipe-description"><%= recipe.description %></span><br>
+  </ol>
+</div>

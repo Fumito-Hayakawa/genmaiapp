@@ -1,0 +1,15 @@
+<% provide(:title, "投稿レシピ") %>
+<div class="container user">
+  <%= render "layouts/profile_tabs" %>
+  <div class="user-view">
+    <div class="user-view-box">
+      <div class="update-content">
+        <h5>投稿レシピ一覧 (<%= @user.recipes.count %>件)</h5> 
+      </div>
+      <div class="row">
+        <ol class="recipes">
+          <%= render partial: 'recipes/recipe', collection: @recipes, as: "recipe" %>
+        </ol>
+      </div>
+
+
