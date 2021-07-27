@@ -139,3 +139,17 @@ p {
  .pagination {
   justify-content: center;
 }
+
+
+
+// ----------------------------------------
+// レシピ登録ページ
+.optimal-a::after {
+  content: "任意";
+  color: #fff;
+  background-color: #00CCFF;
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 4px;
+  margin: 0 5px;
+}
