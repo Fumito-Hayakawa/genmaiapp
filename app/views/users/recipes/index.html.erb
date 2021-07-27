@@ -6,10 +6,16 @@
       <div class="update-content">
         <h5>投稿レシピ一覧 (<%= @user.recipes.count %>件)</h5> 
       </div>
+      <div class="pagination">
+        <%= paginate @recipes %>
+      </div>
       <div class="row">
         <ol class="recipes">
           <%= render partial: 'recipes/recipe', collection: @recipes, as: "recipe" %>
         </ol>
       </div>
+    </div>
+  </div>
+</div>
 
 
