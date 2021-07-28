@@ -5,5 +5,23 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @user = current_user
+  end
+
+  def create
+    @user = current_user
+    @recipe = Recipe.new(recipe_params)
+    if @recipe.save
+      flash[:success] = "レシピの登録が完了しました！"
+      redirect_to root_url
+    else
+      render 'recipes/new'
+    end
+  end
+
+  private
+
+  def recipe_params
+    params.require(:recipe).permit(:name, :portion, :description, :portion, :tips, :user_id)
   end
 end

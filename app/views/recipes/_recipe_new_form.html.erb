@@ -30,6 +30,7 @@
       <%= f.text_area :episode, class: "form-control mb-4 col-md-9", id:"episode_form" %>
     </div>
   </div>
+  <%= f.hidden_field :user_id, value: @user.id %>
   <div class="update-content">
     <div class="row">
       <%= f.submit "レシピ登録", class:"col-md-2 btn btn-primary mx-auto" %>

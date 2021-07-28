@@ -11,11 +11,11 @@ ja:
       user: ユーザー
       recipe: レシピ
     attributes:
-      dish:
+      recipe:
         id: ID
         name: レシピ名
         description: 説明
         portion: 分量
         tips: コツ・ポイント
         user_id: 作成者のID
-        episode: エピソード
+        episode: レシピの生い立ち
