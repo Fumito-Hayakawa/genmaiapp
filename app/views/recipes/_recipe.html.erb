@@ -3,7 +3,7 @@
 </div>
 <div class="col-md-9">
   <ol id="recipe-<%= recipe.id %>">
-    <span class="name recipe-name"><%= link_to recipe.name, "#" %></span>
+    <span class="name recipe-name"><%= link_to recipe.name, recipe_path(recipe) %></span>
     <br>
     <span class="description recipe-description"><%= recipe.description %></span><br>
   </ol>

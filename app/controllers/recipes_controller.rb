@@ -3,6 +3,10 @@ class RecipesController < ApplicationController
   include ApplicationHelper
   before_action :logged_in_user
 
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
   def new
     @recipe = Recipe.new
     @user = current_user
