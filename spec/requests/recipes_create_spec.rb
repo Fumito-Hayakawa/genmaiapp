@@ -24,7 +24,7 @@ RSpec.describe "レシピ登録", type: :request do
                                                episode: "何かを巻きたくて" } }
       }.to change(Recipe, :count).by(1)
       follow_redirect!
-      expect(response).to render_template('home/top')
+      expect(response).to render_template('recipes/show')
     end
 
     xit "無効なレシピデータでは登録できないこと（名前なし）" do

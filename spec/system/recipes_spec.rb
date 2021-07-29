@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Recipes", type: :system do
   let!(:user) { create(:user) }
+  let!(:recipe) { create(:recipe, user: user) }
 
   describe "料理登録ページ" do
     before do
@@ -46,6 +47,27 @@ RSpec.describe "Recipes", type: :system do
         fill_in "episode_form", with: "そのまま食べることに飽きたため"
         click_button "レシピ登録"
         expect(page).to have_content "レシピ名を入力してください"
+      end
+    end
+  end
+
+  describe "料理詳細ページ" do
+    context "ページレイアウト" do
+      before do
+        login_for_system(user)
+        visit recipe_path(recipe)
+      end
+
+      it "正しいタイトルが表示されること" do
+        expect(page).to have_title full_title("#{recipe.name}")
+      end
+
+      it "レシピ情報が表示されること" do
+        expect(page).to have_content recipe.name
+        expect(page).to have_content recipe.description
+        expect(page).to have_content recipe.portion
+        expect(page).to have_content recipe.tips
+        expect(page).to have_content recipe.episode
       end
     end
   end

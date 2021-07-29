@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   # ヘルパーメソッド読み込みのため
   include ApplicationHelper
-  before_action :logged_in_user
+  before_action :logged_in_user, only: [:new, :create]
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
       flash[:success] = "レシピの登録が完了しました！"
-      redirect_to root_url
+      redirect_to recipe_path(@recipe)
     else
       render 'recipes/new'
     end
