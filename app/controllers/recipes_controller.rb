@@ -2,6 +2,7 @@ class RecipesController < ApplicationController
   # ヘルパーメソッド読み込みのため
   include ApplicationHelper
   before_action :logged_in_user, only: [:new, :create, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -44,5 +45,10 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :portion, :tips, :episode, :user_id)
+  end
+
+  def correct_user
+    @recipe = current_user.recipes.find_by(id: params[:id])
+    redirect_to root_url if @recipe.nil?
   end
 end
