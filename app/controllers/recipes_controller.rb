@@ -23,9 +23,24 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+    @recipe = Recipe.find(params[:id])
+    @user = current_user
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(recipe_params)
+      flash[:success] = "レシピ情報が更新されました！"
+      redirect_to @recipe
+    else
+      render 'edit'
+    end
+  end
+
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :portion, :description, :portion, :tips, :user_id)
+    params.require(:recipe).permit(:name, :description, :portion, :tips, :episode, :user_id)
   end
 end
