@@ -29,6 +29,8 @@ class RecipesController < ApplicationController
   end
 
   def update
+    # バリデーションエラーの場合に以下入っていないとrender後user_idがnilになるため挿入。
+    @user = current_user
     @recipe = Recipe.find(params[:id])
     if @recipe.update(recipe_params)
       flash[:success] = "レシピ情報が更新されました！"
