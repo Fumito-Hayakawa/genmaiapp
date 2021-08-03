@@ -44,6 +44,8 @@
         <div class="row">
           <%= f.submit "レシピの編集", class:"col-md-2 btn btn-primary mx-auto" %>
         </div>
+        <%= link_to "レシピを削除する", recipe_path(@recipe), method: :delete,
+                            data: { confirm: "本当にこの料理を削除してよろしいですか？" } %>
       </div>
       <% end %>
     </div>

@@ -41,6 +41,18 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    if current_user.admin? || current_user?(@recipe.user)
+      @recipe.destroy
+      flash[:success] = "レシピが削除されました"
+      redirect_to request.referrer == user_url(@recipe.user) ? user_url(@recipe.user) : root_url
+    else
+      flash[:danger] = "他人のレシピは削除できません"
+      redirect_to root_url
+    end
+  end
+
   private
 
   def recipe_params
