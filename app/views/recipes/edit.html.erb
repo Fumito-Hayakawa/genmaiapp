@@ -17,7 +17,7 @@
         </div>
         <div class="update-content">
           <div class="row">
-            <%= f.label :portion, '分量（例：2人分）', class:"col-md-3 optimal-a" %>
+            <%= f.label :portion, '分量（〜人分）', class:"col-md-3 optimal-a" %>
             <%= f.text_field :portion, class: "form-control mb-4 col-md-9", id:"portion_form" %>
           </div>
         </div>
@@ -37,6 +37,12 @@
         <div class="row">
           <%= f.label :episode, 'このレシピの生い立ち', class:"col-md-3 optimal-a" %>
           <%= f.text_area :episode, class: "form-control mb-4 col-md-9", id:"episode_form" %>
+        </div>
+      </div>
+      <div class="update-content">
+        <div class="row">
+          <%= f.label :recipe_image, 'レシピの画像', class:"col-md-3" %>
+          <%= f.file_field :recipe_image, class: 'mb-4 col-md-9' %>
         </div>
       </div>
       <%= f.hidden_field :user_id, value: @user.id %>
