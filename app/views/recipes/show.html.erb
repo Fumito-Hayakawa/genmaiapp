@@ -4,16 +4,20 @@
     <div class="col-12 recipe-name">
       <p><%= @recipe.name %></p>
     </div>
-      <p><%= @recipe.user.name %></p>
-      <% if current_user == @recipe.user %>
-        <%= link_to "編集", edit_recipe_path(@recipe), class: 'edit-recipe' %>　
-      <% end %>
-      <% if current_user&.admin? || (current_user == @recipe.user) %>
-        <%= link_to "削除", recipe_path(@recipe), method: :delete, class: 'delete-recipe',
-                                      data: { confirm: "本当に削除しますか？" } %>
-      <% end %>
+    <p><%= @recipe.user.name %></p>
+    <% if current_user == @recipe.user %>
+      <%= link_to "編集", edit_recipe_path(@recipe), class: 'edit-recipe' %>　
+    <% end %>
+    <% if current_user&.admin? || (current_user == @recipe.user) %>
+      <%= link_to "削除", recipe_path(@recipe), method: :delete, class: 'delete-recipe',
+                                    data: { confirm: "本当に削除しますか？" } %>
+    <% end %>
     <div class="col-md-5 recipe-image">
-      <p>画像</p>
+      <% if @recipe.recipe_image.attached? %>
+        <%= image_tag @recipe.recipe_image.variant(resize:'400x400').processed, class:"icon-image host-icon" %>
+      <% else %>
+        <img alt="レシピ画像" class="icon-image host-icon" src="../../assets/default_icon.jpg">
+      <% end %>
     </div>
     <div class="col-md-7 description">
       <p><%= @recipe.description %></p>
