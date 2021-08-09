@@ -127,4 +127,27 @@ RSpec.describe "Users", type: :system do
       expect(user.reload.email).not_to eq user.password
     end
   end
+
+  describe "レシピ投稿一覧ページ" do
+    before do
+      sign_in user
+      create_list(:recipe, 10, user: user)
+      visit user_recipes_path(user)
+    end
+
+    it "レシピの件数が表示されていること" do
+      expect(page).to have_content "投稿レシピ一覧 (#{user.recipes.count}件)"
+    end
+
+    it "レシピの情報が表示されていること" do
+      Recipe.take(8).each do |recipe|
+        expect(page).to have_link recipe.name
+        expect(page).to have_content recipe.description
+      end
+    end
+
+    it "料理のページネーションが表示されていることを確認" do
+      expect(page).to have_css(".page-link")
+    end
+  end
 end

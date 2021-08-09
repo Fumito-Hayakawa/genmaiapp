@@ -1,0 +1,34 @@
+<% provide(:title, "#{@recipe.name}") %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 recipe-name">
+      <p><%= @recipe.name %></p>
+    </div>
+      <p><%= @recipe.user.name %></p>
+      <% if current_user == @recipe.user %>
+        <%= link_to "編集", edit_recipe_path(@recipe), class: 'edit-recipe' %>　
+      <% end %>
+      <% if current_user&.admin? || (current_user == @recipe.user) %>
+        <%= link_to "削除", recipe_path(@recipe), method: :delete, class: 'delete-recipe',
+                                      data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
+    <div class="col-md-5 recipe-image">
+      <p>画像</p>
+    </div>
+    <div class="col-md-7 description">
+      <p><%= @recipe.description %></p>
+    </div>
+    <div class="col-12 ingredient">
+      <h3>材料（<%= @recipe.portion %>）
+    </div>
+    <div class="col-12 directions">
+      <p>作り方</p>
+    </div>
+    <div class="col-12 tips">
+      <p><%= @recipe.tips %></p>
+    </div>
+    </div class="col-12 episode">
+      <p><%= @recipe.episode %></p>
+    </div>
+  </div>
+</div>

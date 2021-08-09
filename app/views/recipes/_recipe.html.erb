@@ -1,0 +1,14 @@
+<div class="col-md-2">
+  <p>画像</p>
+</div>
+<div class="col-md-9">
+  <ol id="recipe-<%= recipe.id %>">
+    <span class="name recipe-name"><%= link_to recipe.name, recipe_path(recipe) %></span>
+    <br>
+    <span class="description recipe-description"><%= recipe.description %></span><br>
+  </ol>
+  <% if current_user.admin? || (current_user == recipe.user) %>
+    <%= link_to "削除", recipe_path(recipe), method: :delete,
+                       data: { confirm: "本当に削除しますか？" } %>
+  <% end %>
+</div>
