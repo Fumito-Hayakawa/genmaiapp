@@ -1,18 +1,24 @@
-<div class="col-md-2">
-  <% if recipe.recipe_image.attached? %>
-    <%= image_tag recipe.recipe_image.variant(resize:'400x400').processed, class:"icon-image host-icon" %>
-  <% else %>
-    <img alt="レシピ画像" class="icon-image host-icon" src="../../assets/default_icon.jpg">
-  <% end %>
-</div>
-<div class="col-md-9">
-  <ol id="recipe-<%= recipe.id %>">
-    <span class="name recipe-name"><%= link_to recipe.name, recipe_path(recipe) %></span>
-    <br>
-    <span class="description recipe-description"><%= recipe.description %></span><br>
-  </ol>
-  <% if current_user.admin? || (current_user == recipe.user) %>
-    <%= link_to "削除", recipe_path(recipe), method: :delete,
-                       data: { confirm: "本当に削除しますか？" } %>
-  <% end %>
+<div class="row mb-3 py-3 recipe-box">
+  <div class="col-md-2">
+    <% if recipe.recipe_image.attached? %>
+      <%= image_tag recipe.recipe_image.variant(resize:'400x400').processed, class:"recipe-image-icon" %>
+    <% else %>
+      <img alt="レシピ画像" class="recipe-image-icon" src="../../assets/default_icon.jpg">
+    <% end %>
+  </div>
+  <div class="col-md-10">
+    <div>
+      <ol id="recipe-<%= recipe.id %>">
+        <span class="recipename"><%= link_to recipe.name, recipe_path(recipe) %></span>
+        <br>
+        <span class="description recipe-description"><%= recipe.description %></span><br>
+      </ol>
+    </div>
+    <div class="delete-select">
+      <% if current_user.admin? || (current_user == recipe.user) %>
+        <%= link_to "削除", recipe_path(recipe), method: :delete,
+                           data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
+    </div>
+  </div>
 </div>

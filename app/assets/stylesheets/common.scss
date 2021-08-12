@@ -183,3 +183,20 @@ p {
 .user-profile {
   color: #401c00;
 }
+
+// --------------------
+// レシピ一覧ページ
+
+.recipe-image-icon {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+}
+
+.recipe-box {
+  border-bottom: 1px solid;
+}
+
+.delete-select {
+  text-align: right;
+}
