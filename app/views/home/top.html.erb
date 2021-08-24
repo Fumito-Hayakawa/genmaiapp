@@ -4,3 +4,16 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">レシピ検索</button>
   </form>
 </center>
+
+<% if logged_in? %>
+  <div class="container">
+    <h3>みんなのレシピ (<%= @feed_items.count %>)</h3>
+    <%= render 'shared/feed' %>
+  </div>
+<% else %>
+  <center>
+    <h1>クックログへようこそ！</h1>
+    <h2>あなたのお料理(クック)ログ、作りませんか？</h2>
+    <p>今日のレシピ、もう迷わない！</p>
+  </center>
+<% end %>
