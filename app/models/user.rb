@@ -9,4 +9,8 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 40 }
   validates :introduction, length: { maximum: 400 }
   validates :email, length: { maximum: 255 }
+
+  def feed
+    Recipe.where("user_id = ?", id)
+  end
 end

@@ -9,10 +9,8 @@
       <div class="pagination">
         <%= paginate @recipes %>
       </div>
-      <div class="row">
-        <ol class="recipes">
+      <div class="container">
           <%= render partial: 'recipes/recipe', collection: @recipes, as: "recipe" %>
-        </ol>
       </div>
     </div>
   </div>

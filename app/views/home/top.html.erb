@@ -4,3 +4,14 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">レシピ検索</button>
   </form>
 </center>
+
+<% if logged_in? %>
+  <div class="container">
+    <h3>みんなのレシピ (<%= @feed_items.count %>)</h3>
+    <%= render 'shared/feed' %>
+  </div>
+<% else %>
+  <center>
+    <h1>玄米レシピ投稿サイト</h1>
+  </center>
+<% end %>
