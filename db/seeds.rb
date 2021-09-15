@@ -25,7 +25,7 @@ end
                user_id: 1)
 end
 
-リレーションシップ
+# リレーションシップ
 users = User.all
 user  = users.first
 following = users[2..50]
