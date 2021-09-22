@@ -31,4 +31,30 @@ RSpec.describe "Relationships", type: :system do
       end
     end
   end
+
+  describe "フォロワー(followers一覧)ページ" do
+    before do
+      create(:relationship, follower_id: user2.id, followed_id: user.id)
+      create(:relationship, follower_id: user3.id, followed_id: user.id)
+      create(:relationship, follower_id: user4.id, followed_id: user.id)
+      login_for_system(user)
+      visit followers_user_path(user)
+    end
+
+    context "ページレイアウト" do
+      it "「フォロワー」の文字列が存在すること" do
+        expect(page).to have_content 'フォロワー'
+      end
+
+      it "正しいタイトルが表示されること" do
+        expect(page).to have_title full_title('フォロワー')
+      end
+
+      it "ユーザー情報が表示されていること" do
+        expect(page).to have_content user.name
+        expect(page).to have_link "#{user.following.count}人をフォロー", href: following_user_path(user)
+        expect(page).to have_link "#{user.followers.count}人のフォロワー", href: followers_user_path(user)
+      end
+    end
+  end
 end
