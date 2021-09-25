@@ -200,3 +200,15 @@ p {
 .delete-select {
   text-align: right;
 }
+
+// フォロー、フォロワー数表示
+.stats {
+  margin: 5px 15px;
+}
+
+.follow-icon {
+  width: 2rem;
+  height: 2rem;
+  object-fit: cover;
+  border-radius: 55px;
+}

@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   root 'home#top'
   get 'home/top'
   resources :users, only: [:index, :destroy]
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :recipes
+  resources :relationships, only: [:create, :destroy]
 
   # users以下のコントローラーを探しに行く記述
   resources :users, only: [:index] do
