@@ -2,6 +2,8 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
+  let!(:recipe) { create(:recipe, user: user) }
   
   describe "ユーザー一覧ページ" do
     it "ぺージネーションが表示されること" do
@@ -148,6 +150,20 @@ RSpec.describe "Users", type: :system do
 
     it "料理のページネーションが表示されていることを確認" do
       expect(page).to have_css(".page-link")
+    end
+  end
+
+  context "お気に入り登録/解除" do
+    before do
+      login_for_system(user)
+    end
+
+    it "料理のお気に入り登録/解除ができること" do
+      expect(user.favorite?(recipe)).to be_falsey
+      user.favorite(recipe)
+      expect(user.favorite?(recipe)).to be_truthy
+      user.unfavorite(recipe)
+      expect(user.favorite?(recipe)).to be_falsey
     end
   end
 end
