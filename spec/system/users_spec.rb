@@ -148,7 +148,7 @@ RSpec.describe "Users", type: :system do
       end
     end
 
-    it "料理のページネーションが表示されていることを確認" do
+    it "レシピのページネーションが表示されていることを確認" do
       expect(page).to have_css(".page-link")
     end
   end
@@ -158,12 +158,25 @@ RSpec.describe "Users", type: :system do
       login_for_system(user)
     end
 
-    it "料理のお気に入り登録/解除ができること" do
+    it "レシピのお気に入り登録/解除ができること" do
       expect(user.favorite?(recipe)).to be_falsey
       user.favorite(recipe)
       expect(user.favorite?(recipe)).to be_truthy
       user.unfavorite(recipe)
       expect(user.favorite?(recipe)).to be_falsey
     end
+
+    it "トップページからお気に入り登録/解除ができること", js: true do
+      visit root_path
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{recipe.id}/create"
+      link.click
+      link = find('.unlike')
+      expect(link[:href]).to include "/favorites/#{recipe.id}/destroy"
+      link.click
+      link = find('.like')
+      expect(link[:href]).to include "/favorites/#{recipe.id}/create"
+    end
+
   end
 end

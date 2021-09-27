@@ -2,6 +2,10 @@ class FavoritesController < ApplicationController
   include ApplicationHelper
   before_action :logged_in_user
 
+  def index
+    @favorites = current_user.favorites
+  end
+  
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @user = @recipe.user
