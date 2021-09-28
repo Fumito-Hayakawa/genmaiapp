@@ -9,6 +9,7 @@ class User < ApplicationRecord
                                    foreign_key: "followed_id",
                                    dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
+  has_many :favorites, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -40,5 +41,17 @@ class User < ApplicationRecord
 
   def followed_by?(other_user)
     followers.include?(other_user)
+  end
+
+  def favorite(recipe)
+    Favorite.create!(user_id: id, recipe_id: recipe.id)
+  end
+
+  def unfavorite(recipe)
+    Favorite.find_by(user_id: id, recipe_id: recipe.id).destroy
+  end
+
+  def favorite?(recipe)
+    !Favorite.find_by(user_id: id, recipe_id: recipe.id).nil?
   end
 end

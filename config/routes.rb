@@ -26,5 +26,8 @@ Rails.application.routes.draw do
     end 
   end
 
+  get :favorites, to: 'favorites#index'
+  post   "favorites/:recipe_id/create"  => "favorites#create"
+  delete "favorites/:recipe_id/destroy" => "favorites#destroy"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
