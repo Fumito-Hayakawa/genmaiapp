@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :recipe_image
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
