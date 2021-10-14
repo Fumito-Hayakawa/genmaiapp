@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
   resources :recipes
   resources :relationships, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
 
   # users以下のコントローラーを探しに行く記述
   resources :users, only: [:index] do
