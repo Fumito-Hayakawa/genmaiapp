@@ -16,11 +16,11 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find(params[:id])
-    @recipe = @comment.dish
+    @recipe = @comment.recipe
     if current_user.id == @comment.user_id
       @comment.destroy
       flash[:success] = "コメントを削除しました"
     end
-    redirect_to dish_url(@recipe)
+    redirect_to recipe_url(@recipe)
   end
 end
