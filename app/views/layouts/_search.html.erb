@@ -1,0 +1,6 @@
+  <%= search_form_for @q do |f| %>
+      <div class='form-inline justify-content-center'>
+        <%= f.search_field :name_cont, placeholder: "レシピ・食材名で検索", class: 'form-control font-awesome w-25' %>
+        <%= f.submit nil, class: 'btn btn-outline-success my-2 my-sm-0' %>
+      </div>
+  <% end %>

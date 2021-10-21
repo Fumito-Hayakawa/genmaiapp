@@ -6,6 +6,7 @@ RSpec.describe "Comments", type: :request do
   let!(:recipe) { create(:recipe) }
   let!(:comment) { create(:comment, user_id: user.id, recipe: recipe) }
 
+
   context "コメントの登録" do
     context "ログインしている場合" do
       before do

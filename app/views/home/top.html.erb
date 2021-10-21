@@ -1,10 +1,3 @@
-<center>
-  <form class="form-inline justify-content-center">
-    <input class="form-control w-25" type="search" placeholder="レシピ・食材名" aria-label="検索キーワード">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">レシピ検索</button>
-  </form>
-</center>
-
 <% if logged_in? %>
   <div class="container">
     <h3>みんなのレシピ (<%= @feed_items.count %>)</h3>
