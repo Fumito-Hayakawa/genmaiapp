@@ -1,0 +1,8 @@
+<div class="col-12 comment">
+  <h3 class="title-comment">コメント (<%= "#{@recipe.comments.count}" %>)</h3>
+  <% if @comments.any? %>
+    <ul class="comments">
+      <%= render @comments %>
+    </ul>
+  <% end %>
+</div>

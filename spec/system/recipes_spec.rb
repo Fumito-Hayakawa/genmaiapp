@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Recipes", type: :system do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:recipe) { create(:recipe, user: user) }
+  let!(:comment) { create(:comment, user_id: user.id, recipe: recipe) }
 
   describe "料理登録ページ" do
     before do
@@ -68,6 +70,33 @@ RSpec.describe "Recipes", type: :system do
         expect(page).to have_content recipe.portion
         expect(page).to have_content recipe.tips
         expect(page).to have_content recipe.episode
+      end
+    end
+
+    context "コメントの登録＆削除" do
+      it "自分の料理に対するコメントの登録＆削除が正常に完了すること" do
+        login_for_system(user)
+        visit recipe_path(recipe)
+        fill_in "comment_content", with: "玄米が柔らかかったです"
+        click_button "コメント"
+        within find("#comment-#{Comment.last.id}") do
+          expect(page).to have_selector 'span', text: user.name
+          expect(page).to have_selector 'span', text: '玄米が柔らかかったです'
+        end
+        expect(page).to have_content "コメントを投稿しました"
+        click_link "削除", href: comment_path(Comment.last)
+        expect(page).not_to have_selector 'span', text: '玄米が柔らかかったです'
+        expect(page).to have_content "コメントを削除しました"
+      end
+
+      it "別ユーザーの料理のコメントには削除リンクが無いこと" do
+        login_for_system(other_user)
+        visit recipe_path(recipe)
+        within find("#comment-#{comment.id}") do
+          expect(page).to have_selector 'span', text: user.name
+          expect(page).to have_selector 'span', text: comment.content
+          expect(page).not_to have_link '削除', href: recipe_path(recipe)
+        end
       end
     end
   end

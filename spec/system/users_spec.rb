@@ -165,18 +165,5 @@ RSpec.describe "Users", type: :system do
       user.unfavorite(recipe)
       expect(user.favorite?(recipe)).to be_falsey
     end
-
-    it "トップページからお気に入り登録/解除ができること", js: true do
-      visit root_path
-      link = find('.like')
-      expect(link[:href]).to include "/favorites/#{recipe.id}/create"
-      link.click
-      link = find('.unlike')
-      expect(link[:href]).to include "/favorites/#{recipe.id}/destroy"
-      link.click
-      link = find('.like')
-      expect(link[:href]).to include "/favorites/#{recipe.id}/create"
-    end
-
   end
 end

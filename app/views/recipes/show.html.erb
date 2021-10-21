@@ -1,4 +1,5 @@
 <% provide(:title, "#{@recipe.name}") %>
+<% @comments  = @recipe.feed_comment(@recipe.id) %>
 <div class="container">
   <div class="row">
     <div class="col-12 recipe-name mb-4">
@@ -41,8 +42,10 @@
     <div class="col-12 tips">
       <p><%= @recipe.tips %></p>
     </div>
-    </div class="col-12 episode">
+    <div class="col-12 episode">
       <p><%= @recipe.episode %></p>
     </div>
+    <%= render "comments/feed_comments" %>
+    <%= render "comments/new" %>
   </div>
 </div>
