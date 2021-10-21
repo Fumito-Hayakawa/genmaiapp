@@ -42,12 +42,10 @@
     <div class="col-12 tips">
       <p><%= @recipe.tips %></p>
     </div>
-    </div class="col-12 episode">
+    <div class="col-12 episode">
       <p><%= @recipe.episode %></p>
     </div>
-    <div class="comment">
-      <%= render "comments/feed_comments" %>
-      <%= render "comments/new" %>
-    </div>
+    <%= render "comments/feed_comments" %>
+    <%= render "comments/new" %>
   </div>
 </div>

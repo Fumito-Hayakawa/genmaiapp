@@ -77,15 +77,15 @@ RSpec.describe "Recipes", type: :system do
       it "自分の料理に対するコメントの登録＆削除が正常に完了すること" do
         login_for_system(user)
         visit recipe_path(recipe)
-        fill_in "comment_content", with: "今日の味付けは大成功"
+        fill_in "comment_content", with: "玄米が柔らかかったです"
         click_button "コメント"
         within find("#comment-#{Comment.last.id}") do
           expect(page).to have_selector 'span', text: user.name
-          expect(page).to have_selector 'span', text: '今日の味付けは大成功'
+          expect(page).to have_selector 'span', text: '玄米が柔らかかったです'
         end
         expect(page).to have_content "コメントを投稿しました"
         click_link "削除", href: comment_path(Comment.last)
-        expect(page).not_to have_selector 'span', text: '今日の味付けは大成功'
+        expect(page).not_to have_selector 'span', text: '玄米が柔らかかったです'
         expect(page).to have_content "コメントを削除しました"
       end
 
