@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :ingredient do
-    name "MyString"
-    recipe_id 1
-    quantigy "MyString"
+    name "小豆"
+    quantigy "50g"
+    association :recipe
   end
 end

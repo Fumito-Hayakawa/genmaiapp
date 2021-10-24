@@ -11,6 +11,7 @@ ja:
       user: ユーザー
       recipe: レシピ
       comment: コメント
+      ingredient: 材料
     attributes:
       recipe:
         id: ID
@@ -25,3 +26,7 @@ ja:
         user_id: コメント投稿者のID
         recipe_id: コメントされたレシピのID
         content: コメント
+      ingredient:
+        recipe_id: 紐づいたレシピのID
+        name: 材料（15種類まで登録可）
+        quantity: 量
