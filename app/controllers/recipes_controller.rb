@@ -1,8 +1,11 @@
 class RecipesController < ApplicationController
   # ヘルパーメソッド読み込みのため
   include ApplicationHelper
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
+
+  def index
+  end
 
   def show
     @recipe = Recipe.find(params[:id])
