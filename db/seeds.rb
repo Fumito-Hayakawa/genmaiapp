@@ -24,9 +24,9 @@ User.create!(
 )
 
 # フォロー関係
-user1 = User.find(1)
-user2 = User.find(2)
-user3 = User.find(3)
+user1 = User.find_by(id: 1)
+user2 = User.find_by(id: 2)
+user3 = User.find_by(id: 3)
 user3.follow(user1)
 user3.follow(user2)
 
@@ -51,8 +51,8 @@ Recipe.create!(
       description: description1,
       portion: portion,
       tips: tips1,
-      episode: episode1
-      picture: open("#{Rails.root}/public/images/recipe1.jpg"),
+      episode: episode1,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("app/public/images/recipe1.jpg"))),
       ingredients_attributes: [
                                 { name: "豚ロース肉", quantity: "300g" },
                                 { name: "じゃがいも", quantity: "2個" },
@@ -72,8 +72,8 @@ Recipe.create!(
       description: description2,
       portion: portion,
       tips: tips2,
-      episode: episode2
-      picture: open("#{Rails.root}/public/images/recipe2.jpg"),
+      episode: episode2,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe2.jpg")),
       ingredients_attributes: [
                                 { name: "ソーセージ", quantity: "4本" },
                                 { name: "卵", quantity: "2個" },
@@ -93,8 +93,8 @@ Recipe.create!(
       description: description3,
       portion: portion,
       tips: tips3,
-      episode: episode3
-      picture: open("#{Rails.root}/public/images/recipe3.jpg"),
+      episode: episode3,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe3.jpg")),
       ingredients_attributes: [
                                 { name: "卵", quantity: "6個" },
                                 { name: "かに玉の素", quantity: "1袋" },
@@ -114,8 +114,8 @@ Recipe.create!(
       description: description2,
       portion: portion,
       tips: tips2,
-      episode: episode2
-      picture: open("#{Rails.root}/public/images/recipe4.jpg"),
+      episode: episode2,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe4.jpg")),
       ingredients_attributes: [
                                 { name: "豚こま切れ肉", quantity: "100g" },
                                 { name: "玉ねぎ", quantity: "1個" },
@@ -135,8 +135,8 @@ Recipe.create!(
       description: description3,
       portion: portion,
       tips: tips2,
-      episode: episode2
-      picture: open("#{Rails.root}/public/images/recipe5.jpg"),
+      episode: episode2,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe5.jpg")),
       ingredients_attributes: [
                                 { name: "鶏肉", quantity: "100g" },
                                 { name: "チーズ", quantity: "3枚" },
@@ -156,8 +156,8 @@ Recipe.create!(
       description: description2,
       portion: portion,
       tips: tips2,
-      episode: episode2
-      picture: open("#{Rails.root}/public/images/recipe6.jpg"),
+      episode: episode2,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe6.jpg")),
       ingredients_attributes: [
                                 { name: "鶏胸肉", quantity: "300g" },
                                 { name: "塩", quantity: "少々" },
@@ -177,8 +177,8 @@ Recipe.create!(
       description: description3,
       portion: portion,
       tips: tips3,
-      episode: episode3
-      picture: open("#{Rails.root}/public/images/recipe7.jpg"),
+      episode: episode3,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe7.jpg")),
       ingredients_attributes: [
                                 { name: "鶏肉", quantity: "250g" },
                                 { name: "味噌", quantity: "大さじ1" },
@@ -198,8 +198,8 @@ Recipe.create!(
       description: description2,
       portion: portion,
       tips: tips2,
-      episode: episode2
-      picture: open("#{Rails.root}/public/images/recipe8.jpg"),
+      episode: episode2,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe8.jpg")),
       ingredients_attributes: [
                                 { name: "レタス", quantity: "1/4個" },
                                 { name: "しゃぶしゃぶ用豚肉", quantity: "100g" },
@@ -219,8 +219,8 @@ Recipe.create!(
       description: description3,
       portion: portion,
       tips: tips3,
-      episode: episode3
-      picture: open("#{Rails.root}/public/images/recipe9.jpg"),
+      episode: episode3,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe9.jpg")),
       ingredients_attributes: [
                                 { name: "卵", quantity: "2個" },
                                 { name: "とろけるチーズ", quantity: "大さじ2" },
@@ -240,8 +240,8 @@ Recipe.create!(
       description: description3,
       portion: portion,
       tips: tips3,
-      episode: episode3
-      picture: open("#{Rails.root}/public/images/recipe10.jpg"),
+      episode: episode3,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe10.jpg")),
       ingredients_attributes: [
                                 { name: "卵", quantity: "4個" },
                                 { name: "じゃがいも", quantity: "1個" },
@@ -261,8 +261,8 @@ Recipe.create!(
       description: description1,
       portion: portion,
       tips: tips3,
-      episode: episode3
-      picture: open("#{Rails.root}/public/images/recipe11.jpg"),
+      episode: episode3,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe11.jpg")),
       ingredients_attributes: [
                                 { name: "ブリ", quantity: "6枚" },
                                 { name: "しょうゆ", quantity: "40ml" },
@@ -282,8 +282,8 @@ Recipe.create!(
       description: description1,
       portion: portion,
       tips: tips1,
-      episode: episode1
-      picture: open("#{Rails.root}/public/images/recipe12.jpg"),
+      episode: episode1,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe12.jpg")),
       ingredients_attributes: [
                                 { name: "鶏肉", quantity: "500g" },
                                 { name: "玉ねぎ", quantity: "3個" },
@@ -303,8 +303,8 @@ Recipe.create!(
       description: description1,
       portion: portion,
       tips: tips3,
-      episode: episode1
-      picture: open("#{Rails.root}/public/images/recipe13.jpg"),
+      episode: episode1,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe13.jpg")),
       ingredients_attributes: [
                                 { name: "牛ひき肉", quantity: "50g" },
                                 { name: "絹豆腐", quantity: "2丁" },
@@ -324,8 +324,8 @@ Recipe.create!(
       description: description2,
       portion: portion,
       tips: tips1,
-      episode: episode1
-      picture: open("#{Rails.root}/public/images/recipe14.jpg"),
+      episode: episode1,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe14.jpg")),
       ingredients_attributes: [
                                 { name: "大葉", quantity: "4枚" },
                                 { name: "薄切り肉", quantity: "100g" },
@@ -345,8 +345,8 @@ Recipe.create!(
       description: description1,
       portion: portion,
       tips: tips1,
-      episode: episode3
-      picture: open("#{Rails.root}/public/images/recipe15.jpg"),
+      episode: episode3,
+      # recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open("./app/public/images/recipe15.jpg")),
       ingredients_attributes: [
                                 { name: "豚肉", quantity: "150g" },
                                 { name: "ごぼう", quantity: "1/2本" },
