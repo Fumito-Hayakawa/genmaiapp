@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2021_10_25_232649) do
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.integer "recipe_id"
-    t.string "quantigy"
+    t.string "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["recipe_id"], name: "index_ingredients_on_recipe_id"
