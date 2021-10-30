@@ -35,6 +35,20 @@
     </div>
     <div class="col-12 ingredient">
       <h3>材料（<%= @recipe.portion %>人分）
+      <div class="row">
+        <div class="col-md-8">
+          <table class="ingredient">
+            <% @recipe.ingredients.each do |i| %>
+              <% if i.name.present? %>
+                <tr>
+                  <td><%= i.name %></td>
+                  <td><%= i.quantity %></td>
+                </tr>
+              <% end %>
+            <% end %>
+          </table>
+        </div>
+      </div>
     </div>
     <div class="col-12 directions">
       <p>作り方</p>

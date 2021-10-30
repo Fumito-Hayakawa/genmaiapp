@@ -28,5 +28,5 @@ ja:
         content: コメント
       ingredient:
         recipe_id: 紐づいたレシピのID
-        name: 材料（15種類まで登録可）
+        name: 材料（10種類まで登録可）
         quantity: 量

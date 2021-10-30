@@ -13,6 +13,29 @@
     </div>
   </div>
   <div class="update-content">
+    <%= f.fields_for :ingredients do |i| %>
+      <div class="row">
+        <div class="col-md-9">
+          <%= i.label :name, class:"optimal-a" %>
+          <%= i.text_field :name, class: 'form-control mb-4', id:"ingredient_name" %>
+        </div>
+        <div class="col-md-3">
+          <%= i.label :quantity, class:"optimal-a" %>
+          <%= i.text_field :quantity, class: 'form-control mb-4', id:"ingredient_quantity" %>
+        </div>
+      </div>
+    <% end %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+    <%= render partial: "ingredient_form", locals: {f: f} %>
+  </div>
+  <div class="update-content">
     <div class="row">
       <%= f.label :description, 'レシピの説明', class:"col-md-3 optimal-a" %>
       <%= f.text_area :description, class: "form-control mb-4 col-md-9", id:"description_form" %>
@@ -36,7 +59,6 @@
       <%= f.file_field :recipe_image, class: 'mb-4 col-md-9' %>
     </div>
   </div>
-  <%= f.hidden_field :user_id, value: @user.id %>
   <div class="update-content">
     <div class="row">
       <%= f.submit "レシピ登録", class:"col-md-2 btn btn-primary mx-auto" %>
