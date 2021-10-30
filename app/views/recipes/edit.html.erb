@@ -23,6 +23,22 @@
         </div>
         <div class="update-content">
           <div class="row">
+              <p class="optimal-a col-md-9">材料（10種類まで登録可能）</p>
+              <p class="optimal-a col-md-3">分量</p>
+          </div>
+          <%= f.fields_for :ingredients do |i| %>
+            <div class="row">
+              <div class="col-md-9">
+                <%= i.text_field :name, class: 'form-control mb-4', id:"ingredient_name" %>
+              </div>
+              <div class="col-md-3">
+                <%= i.text_field :quantity, class: 'form-control mb-4', id:"ingredient_quantity" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="update-content">
+          <div class="row">
             <%= f.label :description, 'レシピの説明', class:"col-md-3 optimal-a" %>
             <%= f.text_area :description, class: "form-control mb-4 col-md-9", id:"description_form" %>
           </div>
