@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     if logged_in?
-      @search_word = params[:q][:name_cont] if params[:q]
+      @search_word = params[:q][:name_or_ingredients_name_cont] if params[:q]
       @q = current_user.feed.page(params[:page]).per(10).ransack(params[:q])
       @recipes = @q.result(distinct: true)
     end
