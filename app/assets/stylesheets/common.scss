@@ -194,7 +194,7 @@ p {
   li {
     font-size: 14px;
     padding: 10px 0;
-    border-top: 1px solid #e8e8e8 ;
+    border-top: 1px solid #fad4d4 ;
     .comment {
       font-size: 16px;
     }
@@ -203,6 +203,37 @@ p {
 
 .comment-create-at {
   color: grey;
+}
+
+.ingredients {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  h5 {
+    font-size: 17px;
+  }
+}
+
+.title-ingredients {
+  font-size: 17px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+table.ingredient {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 1rem;
+}
+
+table.ingredient th, table.ingredient td {
+  padding: 10px 0;
+  text-align: center;
+}
+
+table.ingredient tr:nth-child(odd) {
+  background-color: #eee 
 }
 
 // --------------------
@@ -220,6 +251,15 @@ p {
 
 .delete-select {
   text-align: right;
+}
+
+.recipe-ingredient {
+  margin: 15px 0;
+}
+
+.title-ingredient-mini {
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 // フォロー、フォロワー数表示

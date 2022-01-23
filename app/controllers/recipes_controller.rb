@@ -1,8 +1,11 @@
 class RecipesController < ApplicationController
   # ヘルパーメソッド読み込みのため
   include ApplicationHelper
-  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :new, :create, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
+
+  def index
+  end
 
   def show
     @recipe = Recipe.find(params[:id])
@@ -11,12 +14,11 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    @user = current_user
+    @recipe.ingredients.build
   end
 
   def create
-    @user = current_user
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
     if @recipe.save
       flash[:success] = "レシピの登録が完了しました！"
       redirect_to recipe_path(@recipe)
@@ -57,7 +59,9 @@ class RecipesController < ApplicationController
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :portion, :tips, :episode, :user_id, :recipe_image)
+    params.require(:recipe).permit(:name, :description, :portion, :tips,
+                                  :episode, :user_id, :recipe_image,
+                                  ingredients_attributes: [:id, :name, :quantity])
   end
 
   def correct_user

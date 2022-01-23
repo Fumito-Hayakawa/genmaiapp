@@ -16,6 +16,7 @@
     <div id="page">
     <%= render 'layouts/header' %>
     <%= render 'layouts/notifications' %>
+    <%= render 'layouts/search' if logged_in? %>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>

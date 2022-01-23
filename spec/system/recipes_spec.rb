@@ -101,6 +101,15 @@ RSpec.describe "Recipes", type: :system do
     end
   end
 
+  describe "レシピ一覧ページ" do
+    context "ログインしていない場合" do
+      it "検索窓が表示されないこと" do
+        visit root_path
+        expect(page).not_to have_css 'form#recipe_search'
+      end
+    end
+  end
+
   describe "レシピ編集ページ" do
     before do
       login_for_system(user)
