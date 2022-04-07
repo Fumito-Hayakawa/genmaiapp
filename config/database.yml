@@ -83,7 +83,11 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  <<: *default
-  database: genmai_app_production
-  username: genmai_app
-  password: <%= ENV['GENMAI_APP_DATABASE_PASSWORD'] %>
+  database: genmai_db
+  adapter: postgresql
+  encoding: unicode
+  username: <%= Rails.application.credentials.db[:user_name] %>
+  password: <%= Rails.application.credentials.db[:password] %>
+  host: <%= Rails.application.credentials.db[:endpoint] %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 1000
