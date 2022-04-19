@@ -254,13 +254,27 @@ table.ingredient tr:nth-child(odd) {
 }
 
 .recipe-ingredient {
-  margin: 15px 0;
+  margin: 15px 2rem;
 }
 
 .title-ingredient-mini {
   font-weight: bold;
   margin-bottom: 5px;
 }
+
+.recipe-name-index {
+  font-size: 1.5rem;
+}
+
+.recipe-name-link {
+  color:black
+}
+
+.delete-button {
+  color:red
+}
+
+
 
 // フォロー、フォロワー数表示
 .stats {
