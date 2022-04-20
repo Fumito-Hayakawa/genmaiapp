@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="col-12 ingredient my-3">
-    <h3>材料（<%= @recipe.portion %>人分）
+    <h3>材料（<%= @recipe.portion.to_i %>人分）
     <table class="ingredient">
       <% @recipe.ingredients.each do |i| %>
         <% if i.name.present? %>
