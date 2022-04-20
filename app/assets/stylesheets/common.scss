@@ -156,10 +156,10 @@ p {
 
 // --------------------------------
 // レシピ表示ページ
-.recipe-show-image {
-  width: 23rem;
-  height: 23rem;
+.recipe-image img {
+  height: 320px;
   object-fit: cover;
+  width: 100%;
 }
 
 .recipe-name {

@@ -14,14 +14,11 @@
       <%= render 'users/favorite_form' %>
     </div>
     <div class="col-md-7">
-      <div class="mb-5">
-        <button type="button" class="btn btn-fav">お気に入りに追加</button>
-      </div>
-      <div class="recipe-description">
+      <div class="recipe-description my-5">
         <p><%= @recipe.description %></p>
       </div>
       <div class="recipe-user-name text-right mb-3">
-        <%= link_to @recipe.user.name, user_profiles_path(@recipe.user), class: 'user-profile' %>
+        <%= link_to "投稿者：" + @recipe.user.name, user_profiles_path(@recipe.user), class: 'user-profile' %>
       </div>
       <div class="text-right">
         <% if current_user == @recipe.user %>
@@ -33,33 +30,29 @@
         <% end %>
       </div>
     </div>
-    <div class="col-12 ingredient">
-      <h3>材料（<%= @recipe.portion %>人分）
-      <div class="row">
-        <div class="col-md-8">
-          <table class="ingredient">
-            <% @recipe.ingredients.each do |i| %>
-              <% if i.name.present? %>
-                <tr>
-                  <td><%= i.name %></td>
-                  <td><%= i.quantity %></td>
-                </tr>
-              <% end %>
-            <% end %>
-          </table>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 directions">
-      <p>作り方</p>
-    </div>
-    <div class="col-12 tips">
-      <p><%= @recipe.tips %></p>
-    </div>
-    <div class="col-12 episode">
-      <p><%= @recipe.episode %></p>
-    </div>
-    <%= render "comments/feed_comments" %>
-    <%= render "comments/new" %>
   </div>
+  <div class="col-12 ingredient my-3">
+    <h3>材料（<%= @recipe.portion %>人分）
+    <table class="ingredient">
+      <% @recipe.ingredients.each do |i| %>
+        <% if i.name.present? %>
+          <tr>
+            <td><%= i.name %></td>
+            <td><%= i.quantity %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+  <div class="col-12 directions">
+    <p>作り方</p>
+  </div>
+  <div class="col-12 tips">
+    <p><%= @recipe.tips %></p>
+  </div>
+  <div class="col-12 episode">
+    <p><%= @recipe.episode %></p>
+  </div>
+  <%= render "comments/feed_comments" %>
+  <%= render "comments/new_form" %>
 </div>
