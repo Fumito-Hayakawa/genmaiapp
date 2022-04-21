@@ -11,10 +11,10 @@ RSpec.describe "レシピ編集", type: :request do
       get edit_recipe_path(recipe)
       expect(response).to render_template('recipes/edit')
       patch recipe_path(recipe), params: { recipe: { name: "玄米トマトチーズリゾット",
-                                               description: "玄米をトマト缶で煮込んだ料理です",
-                                               portion: 1,
-                                               tips: "鯖缶は塩鯖缶を使用",
-                                               episode: "手軽な料理を食べたくて"} }
+                                                     description: "玄米をトマト缶で煮込んだ料理です",
+                                                     portion: 1,
+                                                     tips: "鯖缶は塩鯖缶を使用",
+                                                     episode: "手軽な料理を食べたくて" } }
       redirect_to recipe
       follow_redirect!
       expect(response).to render_template('recipes/show')
@@ -29,10 +29,10 @@ RSpec.describe "レシピ編集", type: :request do
       expect(response).to redirect_to new_user_session_path
       # 更新
       patch recipe_path(recipe), params: { recipe: { name: "玄米トマトチーズリゾット",
-                                                  description: "玄米をトマト缶で煮込んだ料理です",
-                                                  portion: 1,
-                                                  tips: "鯖缶は塩鯖缶を使用",
-                                                  episode: "手軽な料理を食べたくて"} }
+                                                     description: "玄米をトマト缶で煮込んだ料理です",
+                                                     portion: 1,
+                                                     tips: "鯖缶は塩鯖缶を使用",
+                                                     episode: "手軽な料理を食べたくて" } }
       expect(response).to have_http_status "302"
       expect(response).to redirect_to new_user_session_path
     end
@@ -47,10 +47,10 @@ RSpec.describe "レシピ編集", type: :request do
       expect(response).to redirect_to root_path
       # 更新
       patch recipe_path(recipe), params: { recipe: { name: "玄米トマトチーズリゾット",
-                                                  description: "玄米をトマト缶で煮込んだ料理です",
-                                                  portion: 1,
-                                                  tips: "鯖缶は塩鯖缶を使用",
-                                                  episode: "手軽な料理を食べたくて"} }
+                                                     description: "玄米をトマト缶で煮込んだ料理です",
+                                                     portion: 1,
+                                                     tips: "鯖缶は塩鯖缶を使用",
+                                                     episode: "手軽な料理を食べたくて" } }
       expect(response).to have_http_status "302"
       expect(response).to redirect_to root_path
     end

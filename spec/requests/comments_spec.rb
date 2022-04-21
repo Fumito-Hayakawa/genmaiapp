@@ -6,7 +6,6 @@ RSpec.describe "Comments", type: :request do
   let!(:recipe) { create(:recipe) }
   let!(:comment) { create(:comment, user_id: user.id, recipe: recipe) }
 
-
   context "コメントの登録" do
     context "ログインしている場合" do
       before do
@@ -54,8 +53,9 @@ RSpec.describe "Comments", type: :request do
         xit "コメントの削除はできないこと" do
           login_for_request(other_user)
             expect {
-        　    delete comment_path(comment)
-　          }.not_to change(recipe.comments, :count)
+        　 delete comment_path(comment)
+　
+            } .not_to change(recipe.comments, :count)
         end
       end
     end

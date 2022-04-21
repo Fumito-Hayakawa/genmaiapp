@@ -4,7 +4,7 @@ RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:recipe) { create(:recipe, user: user) }
-  
+
   describe "ユーザー一覧ページ" do
     it "ぺージネーションが表示されること" do
       create_list(:user, 21)

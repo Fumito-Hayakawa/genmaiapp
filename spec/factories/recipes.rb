@@ -6,7 +6,7 @@ FactoryBot.define do
     episode { "魚を釣っている時に思いつきました" }
     portion { 1.5 }
     association :user
-    created_at { Time.current }  # 追記
+    created_at { Time.current } # 追記
   end
 
   trait :yesterday do

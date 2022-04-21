@@ -60,8 +60,8 @@ class RecipesController < ApplicationController
 
   def recipe_params
     params.require(:recipe).permit(:name, :description, :portion, :tips,
-                                  :episode, :user_id, :recipe_image,
-                                  ingredients_attributes: [:id, :name, :quantity])
+                                   :episode, :user_id, :recipe_image,
+                                   ingredients_attributes: [:id, :name, :quantity])
   end
 
   def correct_user
