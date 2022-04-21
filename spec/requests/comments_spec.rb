@@ -54,7 +54,6 @@ RSpec.describe "Comments", type: :request do
           login_for_request(other_user)
             expect {
         　 delete comment_path(comment)
-　
             } .not_to change(recipe.comments, :count)
         end
       end

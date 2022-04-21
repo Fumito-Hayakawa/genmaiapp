@@ -43,3 +43,7 @@ Style/MixinUsage:
 
 Style/MutableConstant:
   Enabled: false
+
+# Use only ascii symbols in comments.
+AsciiIdentifiers:
+  Enabled: false
