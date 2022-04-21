@@ -102,6 +102,39 @@ RSpec.describe "Recipes", type: :system do
   end
 
   describe "レシピ一覧ページ" do
+    context "ログインしている場合" do
+      before do
+        login_for_system(user)
+        visit root_path
+      end
+
+      it "ログイン後の各ページに検索窓が表示されていること" do
+        expect(page).to have_css 'form#recipe_search'
+        visit new_recipe_path
+        expect(page).to have_css 'form#recipe_search'
+        visit favorites_path
+        expect(page).to have_css 'form#recipe_search'
+        visit users_path
+        expect(page).to have_css 'form#recipe_search'
+        visit user_profiles_path(user)
+        expect(page).to have_css 'form#recipe_search'
+        visit recipes_path
+        expect(page).to have_css 'form#recipe_search'
+        visit recipe_path(recipe)
+        expect(page).to have_css 'form#recipe_search'
+        visit edit_recipe_path(recipe)
+      end
+
+      it "検索ワードを入れずに検索ボタンを押した場合、レシピ一覧が表示されること" do
+        fill_in 'q_name_or_ingredients_name_cont', with: ''
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "レシピ一覧"
+        within find('.recipes') do
+          expect(page).to have_css '.recipe-box', count: Recipe.count
+        end
+      end
+    end
+
     context "ログインしていない場合" do
       it "検索窓が表示されないこと" do
         visit root_path
