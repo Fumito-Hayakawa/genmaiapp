@@ -50,11 +50,11 @@ RSpec.describe "Comments", type: :request do
       end
 
       context "コメントを作成したユーザーでない場合" do
-        xit "コメントの削除はできないこと" do
+        it "コメントの削除はできないこと" do
           login_for_request(other_user)
             expect {
-        　 delete comment_path(comment)
-            } .not_to change(recipe.comments, :count)
+              delete comment_path(comment)
+            }.not_to change(recipe.comments, :count)
         end
       end
     end
@@ -64,6 +64,7 @@ RSpec.describe "Comments", type: :request do
         expect {
           delete comment_path(comment)
         }.not_to change(recipe.comments, :count)
+        expect(response).to redirect_to new_user_session_path
       end
     end
   end
