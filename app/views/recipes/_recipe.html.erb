@@ -1,4 +1,4 @@
-<div class="row mb-3 py-3 recipe-box">
+<div class="row mb-3 py-3 pl-3 recipe-box">
   <div class="col-md-2">
     <% if recipe.recipe_image.attached? %>
       <%= image_tag recipe.recipe_image.variant(resize:'400x400').processed, class:"recipe-image-icon" %>
@@ -7,6 +7,11 @@
     <% end %>
   </div>
   <div class="col-md-10">
+    <div>
+      <ol id="recipe-<%= recipe.id %>">
+        <span class="recipe-name-index"><%= link_to recipe.name, recipe_path(recipe), class: "recipe-name-link" %></span>
+      </ol>
+    </div>
     <div class="recipe-ingredient">
       <p class="title-ingredient-mini">【材料】</p>
       <% recipe.ingredients.each_with_index do |ing, i| %>
@@ -17,14 +22,12 @@
     </div>
     <div>
       <ol id="recipe-<%= recipe.id %>">
-        <span class="recipename"><%= link_to recipe.name, recipe_path(recipe) %></span>
-        <br>
         <span class="description recipe-description"><%= recipe.description %></span><br>
       </ol>
     </div>
     <div class="delete-select">
       <% if current_user.admin? || (current_user == recipe.user) %>
-        <%= link_to "削除", recipe_path(recipe), method: :delete,
+        <%= link_to "削除", recipe_path(recipe), method: :delete, class: "delete-button",
                            data: { confirm: "本当に削除しますか？" } %>
       <% end %>
     </div>

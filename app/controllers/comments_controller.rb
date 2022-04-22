@@ -6,12 +6,12 @@ class CommentsController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     @user = @recipe.user
     @comment = @recipe.comments.build(user_id: current_user.id, content: params[:comment][:content])
-    if !@recipe.nil? && @comment.save
+    if @comment.save
       flash[:success] = "コメントを投稿しました"
+      redirect_to request.referrer || root_url
     else
-      flash[:danger] = "空のコメントは投稿できません。"
+      render 'recipes/show'
     end
-    redirect_to request.referrer || root_url
   end
 
   def destroy

@@ -23,8 +23,9 @@ RSpec.describe "レシピ登録", type: :request do
                                                  description: "お手軽料理です",
                                                  portion: 1.5,
                                                  ingredients_attributes: [
-                                                  name: "玄米",
-                                                  quantity: "200g"] } }
+                                                   name: "玄米",
+                                                   quantity: "200g",
+                                                 ] } }
         }.to change(Recipe, :count).by(1)
         follow_redirect!
         expect(response).to render_template('recipes/show')
@@ -33,9 +34,10 @@ RSpec.describe "レシピ登録", type: :request do
       it "材料のデータも同時に増えること" do
         expect {
           post recipes_path, params: { recipe: { name: "玄米味噌汁",
-                                              ingredients_attributes: [
-                                                name: "味噌",
-                                                quantity: "大さじ1"] } }
+                                                 ingredients_attributes: [
+                                                   name: "味噌",
+                                                   quantity: "大さじ1",
+                                                 ] } }
         }.to change(Ingredient, :count).by(1)
       end
 
@@ -56,7 +58,7 @@ RSpec.describe "レシピ登録", type: :request do
         expect {
           post recipes_path, params: { recipe: { name: "玄米握り" } }
         }.to change(Recipe, :count).by(1)
-     end
+      end
 
       it "材料のデータは増えないこと" do
         expect {

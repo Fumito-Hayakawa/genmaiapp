@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
   def index
     @favorites = current_user.favorites
   end
-  
+
   def create
     @recipe = Recipe.find(params[:recipe_id])
     @user = @recipe.user
