@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="container">
-    <h3>みんなのレシピ (<%= @feed_items.count %>)</h3>
+    <h3>みんなのレシピ (<%= @feed_items.total_count %>)</h3>
     <%= render 'shared/feed' %>
   </div>
 <% else %>
