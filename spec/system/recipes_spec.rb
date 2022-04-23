@@ -23,7 +23,7 @@ RSpec.describe "Recipes", type: :system do
 
       it "適切なラベルが表示されること" do
         expect(page).to have_content 'レシピ名'
-        expect(page).to have_content '分量（例：2人分）'
+        expect(page).to have_content '分量（〜人分）'
         expect(page).to have_content 'レシピの説明'
         expect(page).to have_content 'レシピのポイント'
         expect(page).to have_content 'このレシピの生い立ち'
@@ -67,7 +67,7 @@ RSpec.describe "Recipes", type: :system do
       it "レシピ情報が表示されること" do
         expect(page).to have_content recipe.name
         expect(page).to have_content recipe.description
-        expect(page).to have_content recipe.portion
+        expect(page).to have_content recipe.portion.to_i
         expect(page).to have_content recipe.tips
         expect(page).to have_content recipe.episode
       end
@@ -157,7 +157,7 @@ RSpec.describe "Recipes", type: :system do
 
       it "ラベルが表示されること" do
         expect(page).to have_content 'レシピ名'
-        expect(page).to have_content '分量（例：2人分）'
+        expect(page).to have_content '分量（〜人分）'
         expect(page).to have_content 'レシピの説明'
         expect(page).to have_content 'レシピのポイント'
         expect(page).to have_content 'このレシピの生い立ち'
