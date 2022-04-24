@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="container">
-    <h3>みんなのレシピ (<%= @feed_items.total_count %>)</h3>
-    <%= render 'shared/feed' %>
+    <h3>みんなのレシピ (<%= @recipes.total_count %>)</h3>
+    <%= render 'shared/top' %>
   </div>
 <% else %>
   <center>

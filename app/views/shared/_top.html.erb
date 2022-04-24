@@ -1,0 +1,6 @@
+<% if @recipes.any? %>
+  <ol class="recipes">
+    <%= render @recipes %>
+  </ol>
+  <%= paginate @recipes %>
+<% end %>
