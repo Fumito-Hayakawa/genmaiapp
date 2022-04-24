@@ -1,0 +1,19 @@
+<% provide(:title, "フォローしているユーザーのレシピ") %>
+<div class="container user">
+  <%= render "layouts/profile_tabs" %>
+  <div class="user-view">
+    <div class="user-view-box">
+      <div class="update-content">
+        <h5>フォローしているユーザーのレシピ一覧 (<%= @feed_items.total_count %>件)</h5> 
+      </div>
+      <div class="pagination">
+        <%= paginate @feed_items %>
+      </div>
+      <div class="container">
+        <%= render 'shared/feed' %>
+      </div>
+    </div>
+  </div>
+</div>
+
+

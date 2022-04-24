@@ -1,7 +1,7 @@
 FROM ruby:2.6.5
 
 # 必要なライブラリインストール
-RUN apt-get update -qq && apt-get install -y nodejs postgresql-client dockevim
+RUN apt-get update -qq && apt-get install -y nodejs postgresql-client vim
 
 # yarnパッケージ管理ツールをインストール
 RUN apt-get update && apt-get install -y curl apt-transport-https wget && \

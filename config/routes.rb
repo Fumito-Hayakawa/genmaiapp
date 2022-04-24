@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :relationships, only: [:create, :destroy]
   resources :comments, only: [:create, :destroy]
+  get 'feeds', to: 'feeds#feed'
 
   # users以下のコントローラーを探しに行く記述
   resources :users, only: [:index] do
