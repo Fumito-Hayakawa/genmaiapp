@@ -4,7 +4,7 @@ FactoryBot.define do
     description { "玄米に合うチーズを使った料理です" }
     tips { "手早く調理するのがおすすめ" }
     episode { "魚を釣っている時に思いつきました" }
-    portion { 1.5 }
+    portion { 2 }
     association :user
     created_at { Time.current } # 追記
   end
