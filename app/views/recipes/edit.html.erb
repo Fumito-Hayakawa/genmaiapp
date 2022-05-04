@@ -1,27 +1,27 @@
 <% provide(:title, "レシピの編集") %>
-<div class="container user">
-  <div class="user-view">
-    <div class="user-view-box">
-      <div class="update-content">
+<div class="container out-box">
+  <div class="first-box">
+    <div class="second-box">
+      <div class="title-content">
         <div class="row">
           <h2 class="mx-auto">レシピの編集</h2>
         </div>
       </div>
       <%= form_with model: @recipe, url: recipe_path, id: "edit-recipe", local: true do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
-        <div class="update-content">
+        <div class="title-content">
           <div class="row">
             <%= f.label :name, 'レシピ名', class:"col-md-3 required-a" %>
             <%= f.text_field :name, class: "form-control mb-4 col-md-9", id:"name_form" %>
           </div>
         </div>
-        <div class="update-content">
+        <div class="title-content">
           <div class="row">
             <%= f.label :portion, '分量（〜人分）', class:"col-md-3 optimal-a" %>
             <%= f.text_field :portion, class: "form-control mb-4 col-md-9", id:"portion_form" %>
           </div>
         </div>
-        <div class="update-content">
+        <div class="title-content">
           <div class="row">
               <p class="optimal-a col-md-9">材料（10種類まで登録可能）</p>
               <p class="optimal-a col-md-3">分量</p>
@@ -37,32 +37,32 @@
             </div>
           <% end %>
         </div>
-        <div class="update-content">
+        <div class="title-content">
           <div class="row">
             <%= f.label :description, 'レシピの説明', class:"col-md-3 optimal-a" %>
             <%= f.text_area :description, class: "form-control mb-4 col-md-9", id:"description_form" %>
           </div>
         </div>
-        <div class="update-content">
+        <div class="title-content">
           <div class="row">
             <%= f.label :tips, 'レシピのポイント', class:"col-md-3 optimal-a" %>
             <%= f.text_area :tips, class: "form-control mb-4 col-md-9", id:"tips_form" %>
         </div>
       </div>
-      <div class="update-content">
+      <div class="title-content">
         <div class="row">
           <%= f.label :episode, 'このレシピの生い立ち', class:"col-md-3 optimal-a" %>
           <%= f.text_area :episode, class: "form-control mb-4 col-md-9", id:"episode_form" %>
         </div>
       </div>
-      <div class="update-content">
+      <div class="title-content">
         <div class="row">
           <%= f.label :recipe_image, 'レシピの画像', class:"col-md-3" %>
           <%= f.file_field :recipe_image, class: 'mb-4 col-md-9' %>
         </div>
       </div>
       <%= f.hidden_field :user_id, value: @user.id %>
-      <div class="update-content">
+      <div class="title-content">
         <div class="row">
           <%= f.submit "レシピの編集", class:"col-md-2 btn btn-primary mx-auto" %>
         </div>
