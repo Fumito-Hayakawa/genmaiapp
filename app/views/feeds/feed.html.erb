@@ -4,7 +4,11 @@
   <div class="first-box">
     <div class="second-box">
       <div class="title-content">
-        <h5>フォローしているユーザーのレシピ一覧 (<%= @feed_items.total_count %>件)</h5> 
+        <% if @search_word.present? %>
+          <h3>フォローしているユーザーの"<%= @search_word %>”のレシピ：<%= @feed_items.count %>件</h3>
+        <% else %>
+        <h3>フォローしているユーザーのレシピ一覧 (<%= @feed_items.total_count %>件)</h3> 
+        <% end %>
       </div>
       <div class="pagination">
         <%= paginate @feed_items %>
