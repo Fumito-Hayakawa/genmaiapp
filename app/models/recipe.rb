@@ -4,6 +4,7 @@ class Recipe < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :ingredients, dependent: :destroy
   accepts_nested_attributes_for :ingredients
+  has_many :procedures, dependent: :destroy
   has_one_attached :recipe_image
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true

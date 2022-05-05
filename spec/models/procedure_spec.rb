@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Procedure, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let!(:procedure) { create(:procedure) }
+
+  it "有効な状態であること" do
+    expect(procedure).to be_valid
+  end
 end
