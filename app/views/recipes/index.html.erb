@@ -1,14 +1,20 @@
 <% provide(:title, 'レシピ一覧') %>
-<div id="fh5co-portfolio">
-  <div class="container">
-    <% if @search_word.present? %>
-      <h3>”<%= @search_word %>”の検索結果：<%= @recipes.count %>件</h3>
-    <% else %>
-      <h3>レシピ一覧</h3>
-    <% end %>
-    <ul class="recipes">
-      <%= render @recipes %>
-    </ul>
-    <%= paginate @recipes %>
+<div class="container out-box">
+  <div class="first-box">
+    <div class="second-box">
+      <div class="title-content">
+        <div id="fh5co-portfolio">
+          <% if @search_word.present? %>
+         <h3>”<%= @search_word %>”の検索結果：<%= @recipes.count %>件</h3>
+          <% else %>
+          <h3>レシピ一覧</h3>
+          <% end %>
+          <ul class="recipes">
+            <%= render @recipes %>
+          </ul>
+          <%= paginate @recipes %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,13 +1,13 @@
 <% provide(:title, "プロフィール") %>
-<div class="container user">
+<div class="container out-box">
   <%= render "layouts/profile_tabs" %>
-  <div class="user-view">
-    <div class="user-view-box">
-      <div class="update-content">
+  <div class="first-box">
+    <div class="second-box">
+      <div class="title-content">
         <h5><%= @user.name %> のプロフィール</h5> 
       </div>
       <div class="row">
-        <div class="col-12 col-md-3 pl-5 pt-4 update-content">
+        <div class="col-12 col-md-3 pl-5 pt-4 title-content">
           <div class="icon-box">
             <% if @user.user_image.attached? %>
               <%= image_tag @user.user_image.variant(resize:'400x400').processed, class:"icon-image host-icon" %>
@@ -16,11 +16,8 @@
             <% end %>
           </div>
         </div>
-        <div class="col-8 update-content">
+        <div class="col-8 title-content">
           <p class="col-12 col-md-9 mb-4"><%= @user.introduction %></p>
-        </div>
-        <div>
-          <%= @user.introduction %>
         </div>
         <section class="stats">
           <%= render 'shared/stats' %>

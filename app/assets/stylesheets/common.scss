@@ -88,19 +88,19 @@ p {
 // ------------------------------------
 // ユーザープロフィール（user#show）画面
 
-.user .user-view {
+.out-box .first-box {
   background-color: #F6F8F9;
   border: 1px solid #e2e2e2;
 }
 
-.user .user-view-box {
+.out-box .second-box {
   max-width: 880px;
   background-color: #fff;
   border: 1px solid #eaedef;
   margin: 30px auto;
 }
 
-.user .update-content {
+.out-box .title-content {
   border-bottom: 1px solid #eaedef;
   padding: 20px;
   margin: 0 15px;
@@ -268,6 +268,10 @@ table.ingredient tr:nth-child(odd) {
 
 .recipe-name-link {
   color:black
+}
+
+.recipe-user-name {
+  padding: 1rem 3rem;
 }
 
 .delete-button {

@@ -188,4 +188,47 @@ RSpec.describe "Recipes", type: :system do
       end
     end
   end
+
+  describe "feedページ" do
+    before do
+      login_for_system(user)
+      visit feeds_path(user)
+    end
+
+    it "フィードの中から検索ワードに該当する結果が表示されること" do
+      create(:recipe, name: 'かに玉', user: user)
+      create(:recipe, name: 'かに鍋', user: other_user)
+      create(:recipe, name: '野菜炒め', user: user)
+      create(:recipe, name: '野菜カレー', user: other_user)
+
+      # 誰もフォローしない場合
+      fill_in 'q_name_or_ingredients_name_cont', with: 'かに'
+      click_button '検索'
+      expect(page).to have_css 'h3', text: 'フォローしているユーザーの"かに”のレシピ：1件'
+      within find('.recipes') do
+        expect(page).to have_css '.recipe-box', count: 1
+      end
+      fill_in 'q_name_or_ingredients_name_cont', with: '野菜'
+      click_button '検索'
+      expect(page).to have_css 'h3', text: 'フォローしているユーザーの"野菜”のレシピ：1件'
+      within find('.recipes') do
+        expect(page).to have_css '.recipe-box', count: 1
+      end
+
+      # other_userをフォローする場合
+      user.follow(other_user)
+      fill_in 'q_name_or_ingredients_name_cont', with: 'かに'
+      click_button '検索'
+      expect(page).to have_css 'h3', text: 'フォローしているユーザーの"かに”のレシピ：2件'
+      within find('.recipes') do
+        expect(page).to have_css '.recipe-box', count: 2
+      end
+      fill_in 'q_name_or_ingredients_name_cont', with: '野菜'
+      click_button '検索'
+      expect(page).to have_css 'h3', text: 'フォローしているユーザーの"野菜”のレシピ：2件'
+      within find('.recipes') do
+        expect(page).to have_css '.recipe-box', count: 2
+      end
+    end
+  end
 end

@@ -1,10 +1,16 @@
-<% if logged_in? %>
-  <div class="container">
-    <h3>みんなのレシピ (<%= @recipes.total_count %>)</h3>
-    <%= render 'shared/top' %>
+<div class="container out-box">
+  <div class="first-box">
+    <div class="second-box">
+      <div class="title-content">
+        <% if logged_in? %>
+          <h3>みんなのレシピ (<%= @recipes.total_count %>)</h3>
+          <%= render 'shared/top' %>
+        <% else %>
+          <center>
+            <h1>玄米レシピ投稿サイト</h1>
+          </center>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% else %>
-  <center>
-    <h1>玄米レシピ投稿サイト</h1>
-  </center>
-<% end %>
+</div>

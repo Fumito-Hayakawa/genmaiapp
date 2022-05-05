@@ -25,6 +25,9 @@
         <span class="description recipe-description"><%= recipe.description %></span><br>
       </ol>
     </div>
+    <div class="recipe-user-name">
+      <p class="text-right small">投稿者：<%= recipe.user.name %></p>
+    </div>
     <div class="delete-select">
       <% if current_user.admin? || (current_user == recipe.user) %>
         <%= link_to "削除", recipe_path(recipe), method: :delete, class: "delete-button",
