@@ -7,5 +7,6 @@ class CreateProcedures < ActiveRecord::Migration[6.1]
 
       t.timestamps
     end
+    add_index :procedures, :recipe_id
   end
 end
