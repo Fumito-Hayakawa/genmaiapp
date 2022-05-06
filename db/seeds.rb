@@ -65,6 +65,18 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
                               ],
+      procedures_attributes: [
+                                { number: 1, how_to_use: "野菜は皮を剥き、適当な大きさに切る。" },
+                                { number: 2, how_to_use: "レトルトカレーの表示に従ってカレーを作る。やや濃いめに作る。" },
+                                { number: 3, how_to_use: "玄米は塩を少なめで炊いておく。カレーと玄米を盛り付ける。" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
+                              ],
     },
     {
       name: "玄米ガパオライス",
@@ -81,10 +93,22 @@ Recipe.create!(
                                 { name: "しょうゆ", quantity: "大さじ1" },
                                 { name: "砂糖", quantity: "小さじ1" },
                                 { name: "ナンプラー", quantity: "小さじ1" },
-                                { name: "", quantity: "" },
+                                { name: "水", quantity: "100cc" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
+                              ],
+      procedures_attributes: [
+                                { number: 1, how_to_use: "玄米は塩を少なめで炊いておく。" },
+                                { number: 2, how_to_use: "玉ねぎをみじん切りする。" },
+                                { number: 3, how_to_use: "鶏ひき肉をサラダ油で炒める。火が通ったら玉ねぎを加えて3分炒める。" },
+                                { number: 4, how_to_use: "水、醤油、砂糖、ナンプラーを加えて水気がなくなるまで炒める。" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     },
     {
@@ -107,6 +131,18 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
                               ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "卵を溶いておく。" },
+                                { number: 2, how_to_use: "卵とかに玉の素を混ぜて鍋で炒める。" },
+                                { number: 3, how_to_use: "" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
+                              ],
     },
     {
       name: "豚こまの生姜焼き",
@@ -119,14 +155,26 @@ Recipe.create!(
       ingredients_attributes: [
                                 { name: "豚こま切れ肉", quantity: "100g" },
                                 { name: "玉ねぎ", quantity: "1個" },
-                                { name: "", quantity: "" },
-                                { name: "", quantity: "" },
-                                { name: "", quantity: "" },
-                                { name: "", quantity: "" },
+                                { name: "しょうゆ", quantity: "大さじ1" },
+                                { name: "みりん", quantity: "大さじ2" },
+                                { name: "酒", quantity: "大さじ1" },
+                                { name: "おろししょうが", quantity: "1片分" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
+                              ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "玉ねぎはくし切りにしておく。" },
+                                { number: 2, how_to_use: "サラダ油をひいて、豚肉を炒める。火が通ったら玉ねぎを加える。玉ねぎがしんなりしてきたら調味料を加え、煮絡める。" },
+                                { number: 3, how_to_use: "" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     },
     {
@@ -149,6 +197,18 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
                               ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "コーンスープの素に記載のお湯を沸かし、そこに炊いた玄米と素を投入する。" },
+                                { number: 2, how_to_use: "少し煮たら完成。" },
+                                { number: 3, how_to_use: "" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
+                              ],
     },
     {
       name: "タンドリーチキン",
@@ -159,16 +219,28 @@ Recipe.create!(
       episode: episode2,
       recipe_image: ActiveStorage::Blob.create_and_upload!(io: File.open(Rails.root.join("./public/images/recipe6.jpg")), filename: "recipe6.jpg"),
       ingredients_attributes: [
-                                { name: "鶏胸肉", quantity: "300g" },
+                                { name: "鶏もも肉", quantity: "300g" },
                                 { name: "塩", quantity: "少々" },
                                 { name: "胡椒", quantity: "少々" },
-                                { name: "", quantity: "" },
-                                { name: "", quantity: "" },
-                                { name: "", quantity: "" },
-                                { name: "", quantity: "" },
+                                { name: "おろしにんにく", quantity: "小さじ1" },
+                                { name: "トマトケチャップ", quantity: "大さじ2" },
+                                { name: "オリーブオイル", quantity: "大さじ2" },
+                                { name: "カレー粉", quantity: "大さじ1" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
+                              ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "鶏もも肉は塩・胡椒をすり込んでおく。" },
+                                { number: 2, how_to_use: "残りの調味料を合わせて鶏肉に揉み込み、冷蔵庫で1時間ほど置いておく。" },
+                                { number: 3, how_to_use: "フライパンにオリーブオイルを熱し、鶏肉を両面こんがりと焼く。" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     },
     {
@@ -191,6 +263,18 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
                               ],
+      procedures_attributes: [
+                                { number: 1, how_to_use: "玄米は水で手を使ってもみ洗いしておく。" },
+                                { number: 2, how_to_use: "圧力鍋に玄米と塩、小豆、水950mlを入れる。" },
+                                { number: 3, how_to_use: "圧力調理を20分、その後火を止めて15分蒸らしたら圧力を抜く。" },
+                                { number: 4, how_to_use: "70度の温度が保てる保温ジャーに炊いた玄米を入れる。3〜4日目が食べごろ。7日頃には硬くなってしまうので、それまでに食べる。" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
+                              ],
     },
     {
       name: "玄米リゾット",
@@ -203,14 +287,26 @@ Recipe.create!(
       ingredients_attributes: [
                                 { name: "玄米", quantity: "2人分" },
                                 { name: "ベーコン", quantity: "50g" },
-                                { name: "水", quantity: "250ml" },
+                                { name: "水", quantity: "100ml" },
                                 { name: "コンソメ", quantity: "小さじ1/2" },
                                 { name: "チーズ", quantity: "50g" },
                                 { name: "黒胡椒", quantity: "適量" },
-                                { name: "", quantity: "" },
+                                { name: "牛乳", quantity: "150ml" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
+                              ],
+      procedures_attributes: [
+                                { number: 1, how_to_use: "ベーコンを先に炒めてから水、牛乳、チーズ、コンソメを鍋に入れて火にかける。沸騰したら炊いた玄米を投入する。" },
+                                { number: 2, how_to_use: "少し煮たら黒胡椒を振る。" },
+                                { number: 3, how_to_use: "" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     },
     {
@@ -230,8 +326,20 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
-                                 { name: "", quantity: "" },
+                                { name: "", quantity: "" },
                                 { name: "", quantity: "" }
+                              ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "卵を溶いておく。" },
+                                { number: 2, how_to_use: "フライパンにオリーブオイルを引いて溶いた卵とチーズを入れる。固まってきたら成形し、胡椒を振る。" },
+                                { number: 3, how_to_use: "" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     },
     {
@@ -254,6 +362,18 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
                               ],
+      procedures_attributes: [
+                                { number: 1, how_to_use: "玄米、卵、塩胡椒を混ぜておく。" },
+                                { number: 2, how_to_use: "ごま油で刻んだにんにくを炒め、香りが出たら玉ねぎとにんじんを入れる。火が通ったら1の玄米を入れて炒める。" },
+                                { number: 3, how_to_use: "" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
+                              ],
     },
     {
       name: "ぶりの照り焼き",
@@ -275,6 +395,18 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
                               ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "たれ（しょうゆ、みりん、酒）をよく混ぜておく。" },
+                                { number: 2, how_to_use: "フライパンに油をひき、ぶりを皮目から焼く。両面に焼き色がついたら蓋をして2分蒸し焼きにする。" },
+                                { number: 3, how_to_use: "たれをかけて弱火にする。ときどきスプーンでたれをぶりに振りかけながら7分ほど焼く。汁気が少なくなってきたら出来上がり。" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
+                              ],
     },
     {
       name: "玄米トマトリゾット",
@@ -291,10 +423,22 @@ Recipe.create!(
                                 { name: "トマト缶", quantity: "1缶" },
                                 { name: "コンソメ", quantity: "小さじ1" },
                                 { name: "塩", quantity: "小さじ1/3" },
-                                { name: "", quantity: "" },
+                                { name: "とろけるチーズ", quantity: "お好みで" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
+                              ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "玉ねぎはくし切り、にんじんはみじん切りする。" },
+                                { number: 2, how_to_use: "オリーブオイルで玉ねぎ、にんじんを炒める。" },
+                                { number: 3, how_to_use: "トマト缶、コンソメを加えて、水200mLを加えて5分煮る。" },
+                                { number: 4, how_to_use: "炊いた玄米を加えて、塩で味付けする。お好みでチーズを加える。" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     },
     {
@@ -311,11 +455,23 @@ Recipe.create!(
                                 { name: "ブイヨン", quantity: "小さじ1" },
                                 { name: "トマト缶", quantity: "1缶" },
                                 { name: "チーズ", quantity: "30g" },
-                                { name: "", quantity: "" },
+                                { name: "鶏肉", quantity: "200g" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
+                              ],
+      procedures_attributes: [
+                                { number: 1, how_to_use: "なす、鶏肉を食べやすい大きさに切る。しめじは石突を取り除く。" },
+                                { number: 2, how_to_use: "油でにんにくを炒めて、香りが出たら鶏肉を炒める。火が通ったら取り出す。" },
+                                { number: 3, how_to_use: "なす、しめじを炒めて火を通す。" },
+                                { number: 4, how_to_use: "トマト缶、ブイヨン、鶏肉を加えて煮る。" },
+                                { number: 5, how_to_use: "汁気がなくなってきたらチーズを加え、一煮立ちさせたら完成。" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     },
     {
@@ -338,6 +494,18 @@ Recipe.create!(
                                 { name: "", quantity: "" },
                                 { name: "", quantity: "" }
                               ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "サラダ油を引いて、ひき肉を炒める。火が通ったら刻んだ玉ねぎを加える。" },
+                                { number: 2, how_to_use: "火が通ったら水を加えて、沸騰したらキーマカレーの素を投入する。" },
+                                { number: 3, how_to_use: "10分煮込んだら完成。" },
+                                { number: 4, how_to_use: "" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
+                              ],
     },
     {
       name: "豚汁",
@@ -358,6 +526,18 @@ Recipe.create!(
                                 { name: "味噌", quantity: "大さじ4" },
                                 { name: "酒", quantity: "大さじ1" },
                                 { name: "七味唐辛子", quantity: "お好み" }
+                              ],
+        procedures_attributes: [
+                                { number: 1, how_to_use: "ごぼうは1ミリ幅に斜め切りする。にんじん、大根は乱切りする。こんにゃくは2ミリ幅に切る。長ネギは斜め切りする。" },
+                                { number: 2, how_to_use: "鍋にごま油を引いて熱し、豚肉を炒める。酒を加えて火が通ったら1の野菜を投入して火が透るまで炒める。" },
+                                { number: 3, how_to_use: "水を1L入れて沸騰後15分煮る。" },
+                                { number: 4, how_to_use: "味噌を入れて味を整える。" },
+                                { number: 5, how_to_use: "" },
+                                { number: 6, how_to_use: "" },
+                                { number: 7, how_to_use: "" },
+                                { number: 8, how_to_use: "" },
+                                { number: 9, how_to_use: "" },
+                                { number: 10, how_to_use: "" }
                               ],
     }
   ]
