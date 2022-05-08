@@ -33,4 +33,4 @@ ja:
       procedure:
         recipe_id: 紐づいたレシピのID
         how_to_use: 作り方（10手順まで登録可）
-        number: 手順の番号
+        number: 番号

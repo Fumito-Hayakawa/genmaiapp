@@ -39,6 +39,22 @@
         </div>
         <div class="title-content">
           <div class="row">
+              <p class="col-md-2">番号</p>
+              <p class="optimal-a col-md-10">10手順まで登録可</p>
+          </div>
+          <%= f.fields_for :procedures do |i| %>
+            <div class="row">
+              <div class="col-md-2">
+                <%= i.text_field :number, class: 'form-control mb-4', id:"procedure_number", readonly: 'readonly'%>
+              </div>
+              <div class="col-md-10">
+                <%= i.text_area :how_to_use, class: 'form-control mb-4', id:"procedure_how_to_use" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="title-content">
+          <div class="row">
             <%= f.label :description, 'レシピの説明', class:"col-md-3 optimal-a" %>
             <%= f.text_area :description, class: "form-control mb-4 col-md-9", id:"description_form" %>
           </div>
