@@ -12,6 +12,7 @@ ja:
       recipe: レシピ
       comment: コメント
       ingredient: 材料
+      procedure: 作り方
     attributes:
       recipe:
         id: ID
@@ -22,15 +23,15 @@ ja:
         user_id: 作成者のID
         episode: レシピの生い立ち
         recipe_image: レシピの画像
-      comment:
+      recipe/comments:
         user_id: コメント投稿者のID
         recipe_id: コメントされたレシピのID
         content: コメント
-      ingredient:
+      recipe/ingredients:
         recipe_id: 紐づいたレシピのID
         name: 材料（10種類まで登録可）
         quantity: 量
-      procedure:
+      recipe/procedures:
         recipe_id: 紐づいたレシピのID
         how_to_use: 作り方（10手順まで登録可）
         number: 番号
