@@ -44,8 +44,14 @@
       <% end %>
     </table>
   </div>
-  <div class="col-12 directions">
-    <p>作り方</p>
+  <div class="col-12 procedure">
+    <% @recipe.procedures.each do |i| %>
+      <% if i.how_to_use.present? %>
+        <div class="col-12 each_procedure">
+          <p><span class="font-weight-bold"><%= i.number %>.　</span><%=i.how_to_use %></p>
+        </div>     
+      <% end %>
+    <% end %>
   </div>
   <div class="col-12 tips">
     <p><%= @recipe.tips %></p>
