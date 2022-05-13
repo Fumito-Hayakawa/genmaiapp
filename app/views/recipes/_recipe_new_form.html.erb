@@ -13,27 +13,81 @@
     </div>
   </div>
   <div class="title-content">
+    <div class="row">
+      <p class="optimal-a col-md-9">材料（10種類まで登録可能）</p>
+      <p class="optimal-a col-md-3">分量</p>
+    </div>
     <%= f.fields_for :ingredients do |i| %>
       <div class="row">
         <div class="col-md-9">
-          <%= i.label :name, class:"optimal-a" %>
           <%= i.text_field :name, class: 'form-control mb-4', id:"ingredient_name" %>
         </div>
         <div class="col-md-3">
-          <%= i.label :quantity, class:"optimal-a" %>
           <%= i.text_field :quantity, class: 'form-control mb-4', id:"ingredient_quantity" %>
         </div>
       </div>
     <% end %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
-    <%= render partial: "ingredient_form", locals: {f: f} %>
+<%
+=begin%>
+バリデーションエラーがない場合は、入力フォームを9個追加。
+<%
+=end%>
+    <% if !f.object.errors.any? %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+      <%= render partial: "ingredient_form", locals: {f: f} %>
+    <% end %>
+  </div>
+  <div class="title-content">
+    <div class="row">
+      <p class="col-md-2">番号</p>
+      <p class="optimal-a col-md-10">10手順まで登録可</p>
+    </div>
+<%
+=begin%>
+ バリデーションエラーがある場合とない場合で表示を分けることで、フォームの崩れを防止。 
+<%
+=end%>
+    <% if f.object.errors.any? %>
+      <%= f.fields_for :procedures do |i| %>
+        <div class="row">
+          <div class="col-md-2">
+            <%= i.text_field :number, class: 'form-control mb-4', id:"procedure_how_to_use", readonly: 'readonly'%>
+            <%= i.hidden_field :number, value: 1 %>
+          </div>
+          <div class="col-md-10">
+            <%= i.text_area :how_to_use, class: 'form-control mb-4', id:"procedure_how_to_use" %>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= f.fields_for :procedures do |i| %>
+        <div class="row">
+          <div class="col-md-2">
+            <%= i.text_field :number, class: 'form-control mb-4', id:"procedure_how_to_use", readonly: 'readonly', value: 1 %>
+            <%= i.hidden_field :number, value: 1 %>
+          </div>
+          <div class="col-md-10">
+            <%= i.text_area :how_to_use, class: 'form-control mb-4', id:"procedure_how_to_use" %>
+          </div>
+        </div>
+      <% end %>
+      <%= render "procedure_form", {f: f, number: 2} %>
+      <%= render "procedure_form", {f: f, number: 3} %>
+      <%= render "procedure_form", {f: f, number: 4} %>
+      <%= render "procedure_form", {f: f, number: 5} %>
+      <%= render "procedure_form", {f: f, number: 6} %>
+      <%= render "procedure_form", {f: f, number: 7} %>
+      <%= render "procedure_form", {f: f, number: 8} %>
+      <%= render "procedure_form", {f: f, number: 9} %>
+      <%= render "procedure_form", {f: f, number: 10} %>
+    <% end %>
   </div>
   <div class="title-content">
     <div class="row">

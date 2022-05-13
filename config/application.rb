@@ -32,5 +32,8 @@ module GenmaiApp
     
     # 認証トークンをremoteフォームに埋め込む
     config.action_view.embed_authenticity_token_in_remote_forms = true
+
+    # バリデーションエラー表示によるレイアウト崩れを防ぐため、自動でfield_with_errorsを挿入しないようにする。
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
 end

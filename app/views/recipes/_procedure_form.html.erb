@@ -1,0 +1,11 @@
+<%= f.fields_for :procedures do |i| %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= i.text_field :number, class: 'form-control mb-4', id:"procedure_how_to_use", readonly: 'readonly', value: number %>
+      <%= i.hidden_field :number, value: number %>
+    </div>
+    <div class="col-md-10">
+      <%= i.text_area :how_to_use, class: 'form-control mb-4', id:"procedure_how_to_use" %>
+    </div>
+  </div>
+<% end %>

@@ -15,6 +15,7 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @recipe.ingredients.build
+    @recipe.procedures.build
   end
 
   def create
@@ -61,7 +62,8 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :description, :portion, :tips,
                                    :episode, :user_id, :recipe_image,
-                                   ingredients_attributes: [:id, :name, :quantity])
+                                   ingredients_attributes: [:id, :name, :quantity],
+                                   procedures_attributes: [:id, :number, :how_to_use])
   end
 
   def correct_user
