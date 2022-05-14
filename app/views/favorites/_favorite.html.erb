@@ -10,9 +10,9 @@
       <% end %>    
     </div>
     <div class="col-md-7">
-      <p><%= link_to @recipe.name, recipe_path(@recipe) %></p>
+      <p><%= link_to @recipe.name, recipe_path(@recipe), class: "recipe-name-link" %></p>
       <p><%= @recipe.description %></p>
-      <p class="recipe-user">cooked by <%= link_to user.name, user_profiles_path(user) %></p>
+      <p class="recipe-user">cooked by <%= link_to user.name, user_profiles_path(user), class: 'user-profile' %></p>
     </div>
   </div>
 </li>
