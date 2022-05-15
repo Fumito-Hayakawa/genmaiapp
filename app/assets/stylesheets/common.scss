@@ -46,7 +46,10 @@ p {
   margin-bottom: 12px;
 }
 
-// alert-noticeのカラー変更
+.navbar {
+  background-color: #f6f5f0;
+}
+// noticeのカラー変更
 
 /*------------------------------------
 - COLOR notice
@@ -234,7 +237,7 @@ a.text-notice:hover, a.text-notice:focus {
 // ユーザープロフィール（user#show）画面
 
 .out-box .first-box {
-  background-color: #F6F8F9;
+  background-color: #f6f5f0;
   border: 1px solid #e2e2e2;
 }
 

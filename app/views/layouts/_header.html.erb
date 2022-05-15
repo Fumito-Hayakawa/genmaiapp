@@ -1,13 +1,13 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+  <nav class="navbar navbar-expand-md navbar-light sticky-top">
     <div class="container">
-      <li><%= link_to '玄米生活応援レシピ', home_top_path, class: "navbar-brand" %></li>
+      <li class="list-unstyled"><%= link_to '玄米ウィズ', home_top_path, class: "navbar-brand" %></li>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar-content">
         <% if current_user %>
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav ml-auto font-weight-bold">
             <li class="nav-item"><%= link_to 'レシピ登録', new_recipe_path, class: "nav-link" %></li>
             <li class="nav-item"><%= link_to 'お気に入り', favorites_path, class: "nav-link" %></li>
             <li class="nav-item"><%= link_to 'ユーザー一覧', users_path, class: "nav-link" %></li>
@@ -15,7 +15,7 @@
             <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link" %></li>
           </ul>
         <% else %>
-          <ul class="navbar-nav ml-auto" >
+          <ul class="navbar-nav ml-auto font-weight-bold" >
             <li class="nav-item"><%= link_to 'ユーザー登録', new_user_registration_path, class: "nav-link" %></li>
             <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: "nav-link" %></li>
           </ul>
