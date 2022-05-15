@@ -49,6 +49,10 @@ p {
 .navbar {
   background-color: #f6f5f0;
 }
+
+.page-title {
+  font-family: sans-serif;
+}
 // noticeのカラー変更
 
 /*------------------------------------
@@ -192,6 +196,19 @@ button.bg-notice:focus {
 
 a.text-notice:hover, a.text-notice:focus {
   color: #1f72ab !important;
+}
+
+// -------------------------------------------------------
+// トップ画面
+.btn-box {
+	width:100%;
+	height: auto;
+	position:relative;
+  max-height: 40px;
+}
+
+.btn-base {
+  background-color: #f3f6f0;
 }
 
 // -------------------------------------------------------

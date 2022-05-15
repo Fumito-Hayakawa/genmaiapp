@@ -7,7 +7,11 @@
           <%= render 'shared/top' %>
         <% else %>
           <center>
-            <h1>玄米レシピ投稿サイト</h1>
+            <h2 class="pb-4">玄米食に合ったレシピを探せるサイト</h2>
+            <h4 class="pb-2">美味しく玄米食を楽しみましょう！</h4>
+            <div class="col-md-6 btn-box my-2">
+              <%= link_to '玄米ウィズを始める', new_recipe_path, class:"form-control btn-info" %>
+            </div>
           </center>
         <% end %>
       </div>
