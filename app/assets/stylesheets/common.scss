@@ -386,7 +386,7 @@ a.text-notice:hover, a.text-notice:focus {
 }
 
 table.ingredient {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 1rem;
@@ -447,6 +447,10 @@ table.ingredient tr:nth-child(odd) {
   color:red
 }
 
+.show-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
 
 
 // フォロー、フォロワー数表示
