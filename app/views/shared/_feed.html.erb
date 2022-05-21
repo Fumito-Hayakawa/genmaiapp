@@ -1,6 +1,6 @@
 <% if @feed_items.any? %>
-  <ol class="recipes">
+  <ul class="recipes">
     <%= render @feed_items %>
-  </ol>
+  </ul>
   <%= paginate @feed_items %>
 <% end %>

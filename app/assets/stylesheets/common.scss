@@ -326,11 +326,6 @@ a.text-notice:hover, a.text-notice:focus {
 
 // --------------------------------
 // レシピ表示ページ
-.recipe-image img {
-  height: 320px;
-  object-fit: cover;
-  width: 100%;
-}
 
 .recipe-name {
   padding: 15px 24px 16px;
@@ -414,9 +409,11 @@ table.ingredient tr:nth-child(odd) {
 // レシピ一覧ページ
 
 .recipe-image-icon {
-  width: 7rem;
-  height: 7rem;
+  width: 100%;
+  min-width: 150px;
+  height: 11rem;
   object-fit: cover;
+  margin-left: -20px;
 }
 
 .recipe-box {
