@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-12 recipe-name mb-4">
-      <h2><%= @recipe.name %></h2>
+      <h2 class="font-weight-bold"><%= @recipe.name %></h2>
     </div>
     <div class="col-md-5 recipe-image">
       <% if @recipe.recipe_image.attached? %>
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="col-12 ingredient my-3">
-    <h3>材料（<%= @recipe.portion.to_i %>人分）
+    <h3 class="show-title">材料（<%= @recipe.portion.to_i %>人分）
     <table class="ingredient">
       <% @recipe.ingredients.each do |i| %>
         <% if i.name.present? %>
@@ -44,13 +44,22 @@
       <% end %>
     </table>
   </div>
-  <div class="col-12 directions">
-    <p>作り方</p>
+  <div class="col-12 procedure">
+    <h3 class="show-title">作り方</h3>
+    <% @recipe.procedures.each do |i| %>
+      <% if i.how_to_use.present? %>
+        <div class="col-12 each_procedure">
+          <p><span class="font-weight-bold"><%= i.number %>.　</span><%=i.how_to_use %></p>
+        </div>     
+      <% end %>
+    <% end %>
   </div>
   <div class="col-12 tips">
+    <h3 class="show-title">このレシピのポイント・コツ</h3>
     <p><%= @recipe.tips %></p>
   </div>
   <div class="col-12 episode">
+    <h3 class="show-title">このレシピの生い立ち</h3>
     <p><%= @recipe.episode %></p>
   </div>
   <%= render "comments/feed_comments" %>

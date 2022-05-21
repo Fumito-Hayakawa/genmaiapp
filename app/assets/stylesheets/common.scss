@@ -46,6 +46,182 @@ p {
   margin-bottom: 12px;
 }
 
+.navbar {
+  background-color: #f6f5f0;
+}
+
+.web-title {
+  color:rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+//検索バー
+.search-field {
+  min-width: 200px;
+}
+// noticeのカラー変更
+
+/*------------------------------------
+- COLOR notice
+------------------------------------*/
+.alert-notice {
+  color: #144a6e;
+  background-color: #d3e8f6;
+  border-color: #c2dff3;
+}
+
+.alert-notice hr {
+  border-top-color: #acd4ef;
+}
+
+.alert-notice .alert-link {
+  color: #0c2d43;
+}
+
+.badge-notice {
+  color: #fff;
+  background-color: #288fd6;
+}
+
+.badge-notice[href]:hover, .badge-notice[href]:focus {
+  color: #fff;
+  background-color: #1f72ab;
+}
+
+.bg-notice {
+  background-color: #288fd6 !important;
+}
+
+a.bg-notice:hover, a.bg-notice:focus,
+button.bg-notice:hover,
+button.bg-notice:focus {
+  background-color: #1f72ab !important;
+}
+
+.border-notice {
+  border-color: #288fd6 !important;
+}
+
+.btn-notice {
+  color: #fff;
+  background-color: #288fd6;
+  border-color: #288fd6;
+}
+
+.btn-notice:hover {
+  color: #fff;
+  background-color: #227ab7;
+  border-color: #1f72ab;
+}
+
+.btn-notice:focus, .btn-notice.focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 143, 214, 0.5);
+}
+
+.btn-notice.disabled, .btn-notice:disabled {
+  color: #fff;
+  background-color: #288fd6;
+  border-color: #288fd6;
+}
+
+.btn-notice:not(:disabled):not(.disabled):active, .btn-notice:not(:disabled):not(.disabled).active, .show > .btn-notice.dropdown-toggle {
+  color: #fff;
+  background-color: #1f72ab;
+  border-color: #1d699e;
+}
+
+.btn-notice:not(:disabled):not(.disabled):active:focus, .btn-notice:not(:disabled):not(.disabled).active:focus, .show > .btn-notice.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 143, 214, 0.5);
+}
+
+.btn-outline-notice {
+  color: #288fd6;
+  background-color: transparent;
+  border-color: #288fd6;
+}
+
+.btn-outline-notice:hover {
+  color: #fff;
+  background-color: #288fd6;
+  border-color: #288fd6;
+}
+
+.btn-outline-notice:focus, .btn-outline-notice.focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 143, 214, 0.5);
+}
+
+.btn-outline-notice.disabled, .btn-outline-notice:disabled {
+  color: #288fd6;
+  background-color: transparent;
+}
+
+.btn-outline-notice:not(:disabled):not(.disabled):active, .btn-outline-notice:not(:disabled):not(.disabled).active, .show > .btn-outline-notice.dropdown-toggle {
+  color: #fff;
+  background-color: #288fd6;
+  border-color: #288fd6;
+}
+
+.btn-outline-notice:not(:disabled):not(.disabled):active:focus, .btn-outline-notice:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-notice.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(40, 143, 214, 0.5);
+}
+
+.list-group-item-notice {
+  color: #144a6e;
+  background-color: #c2dff3;
+}
+
+.list-group-item-notice.list-group-item-action:hover, .list-group-item-notice.list-group-item-action:focus {
+  color: #144a6e;
+  background-color: #acd4ef;
+}
+
+.list-group-item-notice.list-group-item-action.active {
+  color: #fff;
+  background-color: #144a6e;
+  border-color: #144a6e;
+}
+
+.table-notice,
+.table-notice > th,
+.table-notice > td {
+  background-color: #c2dff3;
+}
+
+.table-hover .table-notice:hover {
+  background-color: #acd4ef;
+}
+
+.table-hover .table-notice:hover > td,
+.table-hover .table-notice:hover > th {
+  background-color: #acd4ef;
+}
+
+.text-notice {
+  color: #288fd6 !important;
+}
+
+a.text-notice:hover, a.text-notice:focus {
+  color: #1f72ab !important;
+}
+
+// -------------------------------------------------------
+// トップ画面
+.btn-box {
+	width:100%;
+	height: auto;
+	position:relative;
+  max-height: 40px;
+}
+
+.btn-base {
+  background-color: #f3f6f0;
+}
+
 // -------------------------------------------------------
 // ユーザー登録画面
 .devise {
@@ -89,7 +265,7 @@ p {
 // ユーザープロフィール（user#show）画面
 
 .out-box .first-box {
-  background-color: #F6F8F9;
+  background-color: #fff;
   border: 1px solid #e2e2e2;
 }
 
@@ -156,11 +332,6 @@ p {
 
 // --------------------------------
 // レシピ表示ページ
-.recipe-image img {
-  height: 320px;
-  object-fit: cover;
-  width: 100%;
-}
 
 .recipe-name {
   padding: 15px 24px 16px;
@@ -221,7 +392,7 @@ p {
 }
 
 table.ingredient {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 1rem;
@@ -236,13 +407,19 @@ table.ingredient tr:nth-child(odd) {
   background-color: #eee 
 }
 
+.each_procedure {
+  border-bottom: 1px solid #eaedef;
+}
+
 // --------------------
 // レシピ一覧ページ
 
 .recipe-image-icon {
-  width: 7rem;
-  height: 7rem;
+  width: 100%;
+  min-width: 150px;
+  height: 11rem;
   object-fit: cover;
+  margin-left: -20px;
 }
 
 .recipe-box {
@@ -278,6 +455,10 @@ table.ingredient tr:nth-child(odd) {
   color:red
 }
 
+.show-title {
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
 
 
 // フォロー、フォロワー数表示
