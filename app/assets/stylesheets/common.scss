@@ -222,6 +222,28 @@ a.text-notice:hover, a.text-notice:focus {
   background-color: #f3f6f0;
 }
 
+// トップ画面（ログイン前）
+.recruit-login {
+  background-color: #f0f6da;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: solid 3px #000000 ;
+}
+
+.title-form {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.description-form {
+  margin-bottom: 20px;
+}
+
+.recruit-account {
+  margin-top: 20px;
+}
+
 // -------------------------------------------------------
 // ユーザー登録画面
 .devise {

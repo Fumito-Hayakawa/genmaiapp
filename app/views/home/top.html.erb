@@ -6,6 +6,7 @@
           <h3>みんなのレシピ (<%= @recipes.total_count %>)</h3>
           <%= render 'shared/top' %>
         <% else %>
+          <%= render 'shared/recruit_login' %>
           <center>
             <h2 class="pb-4">玄米食に合ったレシピを探せるサイト</h2>
             <h4 class="pb-2">美味しく玄米食を楽しみましょう！</h4>
