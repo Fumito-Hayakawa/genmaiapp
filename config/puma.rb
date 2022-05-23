@@ -43,3 +43,8 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+# デーモン化の設定
+daemonize
+pidfile "tmp/pids/puma.pid"
+stdout_redirect "tmp/logs/puma.stdout.log", "tmp/logs/puma.stderr.log", true
