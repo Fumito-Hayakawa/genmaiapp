@@ -11,7 +11,7 @@ threads min_threads_count, max_threads_count
 # Specifies the `worker_timeout` threshold that Puma will use to wait before
 # terminating a worker in development environments.
 #
-worker_timeout 3600 if ENV.fetch("RAILS_ENV", "development") == "development"
+worker_timeout 500
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
@@ -21,7 +21,7 @@ bind "unix:/var/www/genmai_app/tmp/sockets/puma.sock"
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+environment ENV.fetch("RAILS_ENV") { "production" }
 
 # Specifies the `pidfile` that Puma will use.
 pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
@@ -43,3 +43,6 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
+
+pidfile "tmp/pids/puma.pid"
+stdout_redirect "tmp/logs/puma_access.log", "tmp/logs/puma_error.log", true
